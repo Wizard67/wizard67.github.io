@@ -1,2 +1,2 @@
 # Note
-https://wizard67.github.io/Note/
+https://wizard67.github.io/
