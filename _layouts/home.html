@@ -9,7 +9,7 @@ layout: default
   {{ content }}
 
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% for post in site.doc %}
       <li>
         {% assign date_format = site.minima.date_format | default: "%Y-%m-%d %H:%M:%S" %}
         <span class="post-meta">{{ post.date | date: date_format }}</span>
