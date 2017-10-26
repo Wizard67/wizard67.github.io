@@ -1,16 +1,12 @@
+<!doctype html>
+<html lang='en' class='no-js {{ page.html_class }}'>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-
-  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
-  
-  {% if jekyll.environment == 'production' and site.google_analytics %}
-  {% include google-analytics.html %}
-  {% endif %}
+  {% include meta.html %}
+  {% include polyfills.html %}
+  <style>html{opacity:0}</style>
+  <link href="https://ricostacruz.com/til/assets/style.css?t={{ timestamp }}" rel="stylesheet" />
+  <link href="{{base}}/assets/style.css?t={{ timestamp }}" rel="stylesheet" />
+  <link href="{{base}}/assets/print.css?t={{ timestamp }}" rel="stylesheet" media="print" />
 </head>
+<body>
+<div class='all'>
