@@ -30,7 +30,7 @@ const a = 1
 ```
 
 `let` is the new `var`. Constants work just like `let`, but can't be reassigned.
-See: [Let and const](http://babeljs.io/docs/learn-es2015/#let-const)
+See: [Let and const](http://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const)
 
 ### Backtick strings
 
@@ -50,7 +50,7 @@ world
 ```
 
 Templates and multiline strings.
-See: [Template strings](http://babeljs.io/docs/learn-es2015/#template-strings)
+See: [Template strings](http://babeljs.io/learn-es2015/#ecmascript-2015-features-template-strings)
 
 ### Binary and octal literals
 
@@ -59,7 +59,7 @@ let bin = 0b1010010
 let oct = 0o755
 ```
 
-See: [Binary and octal literals](http://babeljs.io/docs/learn-es2015/#binary-and-octal-literals)
+See: [Binary and octal literals](http://babeljs.io/learn-es2015/#ecmascript-2015-features-binary-and-octal-literals)
 
 ### New methods
 
@@ -71,7 +71,7 @@ See: [Binary and octal literals](http://babeljs.io/docs/learn-es2015/#binary-and
 "\u1E9B\u0323".normalize("NFC")
 ```
 
-See: [New methods](http://babeljs.io/docs/learn-es2015/#math-number-string-object-apis)
+See: [New methods](http://babeljs.io/learn-es2015/#ecmascript-2015-features-math-number-string-object-apis)
 
 ### Classes
 
@@ -117,7 +117,7 @@ class Circle extends Shape {
 {: data-line="1"}
 
 Syntactic sugar for prototypes.
-See: [Classes](http://babeljs.io/docs/learn-es2015/#classes)
+See: [Classes](http://babeljs.io/learn-es2015/#ecmascript-2015-features-classes)
 
 ### Exponent operator
 
@@ -142,7 +142,7 @@ new Promise((resolve, reject) => {
 {: data-line="1"}
 
 For asynchronous programming.
-See: [Promises](http://babeljs.io/docs/learn-es2015/#promises)
+See: [Promises](http://babeljs.io/learn-es2015/#ecmascript-2015-features-promises)
 
 ### Using promises
 
@@ -188,6 +188,7 @@ Destructuring
 ```js
 var [first, last] = ['Nikola', 'Tesla']
 ```
+{: data-line="1"}
 
 #### Objects
 
@@ -200,8 +201,21 @@ let {title, author} = {
 {: data-line="1"}
 
 Supports for matching arrays and objects.
-See: [Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring)
+See: [Destructuring](http://babeljs.io/learn-es2015/#ecmascript-2015-features-destructuring)
 
+### Default values
+
+```js
+var scores = [22, 33]
+var [math = 50, sci = 50, arts = 50] = scores
+```
+
+```js
+// Result:
+// math === 22, sci === 23, arts === 50
+```
+
+Default values can be assigned while destructuring arrays or objects.
 
 ### Function arguments
 
@@ -215,6 +229,23 @@ function greet({ name, greeting }) {
 ```js
 greet({ name: 'Larry', greeting: 'Ahoy' })
 ```
+
+Destructuring of objects and arrays can be also be done in function arguments.
+
+### Reassigning keys
+
+```js
+function printCoordinates({ left: x, top: y }) {
+  console.log(`x: ${x}, y: ${y}`)
+}
+```
+{: data-line="1"}
+
+```js
+printCoordinates({ left: 25, top: 90 })
+```
+
+This example assigns `x` to the value of the `left` key.
 
 ### Loops
 
@@ -256,7 +287,7 @@ See: [Object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ### Array spread
 
-#### with Object spread
+#### with Array spread
 
 ```js
 const users = [
@@ -267,7 +298,7 @@ const users = [
 ```
 {: data-line="2,3"}
 
-#### without Object spread
+#### without Array spread
 
 ```js
 const users = admins
@@ -312,7 +343,7 @@ fn(...[1, 2, 3])
 {: data-line="1"}
 
 Default, rest, spread.
-See: [Function arguments](http://babeljs.io/docs/learn-es2015/#default-rest-spread)
+See: [Function arguments](http://babeljs.io/learn-es2015/#ecmascript-2015-features-default-rest-spread)
 
 ### Fat arrows
 
@@ -343,7 +374,7 @@ numbers.map(n => n * 2)
 {: data-line="1"}
 
 Like functions but with `this` preserved.
-See: [Fat arrows](http://babeljs.io/docs/learn-es2015/#arrows)
+See: [Fat arrows](http://babeljs.io/learn-es2015/#ecmascript-2015-features-arrows-and-lexical-this)
 
 Objects
 -------
@@ -369,7 +400,7 @@ const App = {
 ```
 {: data-line="2"}
 
-See: [Object literal enhancements](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
+See: [Object literal enhancements](http://babeljs.io/learn-es2015/#ecmascript-2015-features-enhanced-object-literals)
 
 ### Getters and setters
 
@@ -379,13 +410,13 @@ const App = {
     return this.status === 'closed'
   },
   set closed (value) {
-    this.status === value ? 'closed' : 'open'
+    this.status = value ? 'closed' : 'open'
   }
 }
 ```
 {: data-line="2,5"}
 
-See: [Object literal enhancements](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
+See: [Object literal enhancements](http://babeljs.io/learn-es2015/#ecmascript-2015-features-enhanced-object-literals)
 
 ### Computed property names
 
@@ -398,7 +429,7 @@ let handlers = {
 ```
 {: data-line="3"}
 
-See: [Object literal enhancements](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals)
+See: [Object literal enhancements](http://babeljs.io/learn-es2015/#ecmascript-2015-features-enhanced-object-literals)
 
 Modules
 -------
@@ -431,7 +462,7 @@ import { indentSpaces as indent } from 'helpers'
 ```
 
 `import` is the new `require()`.
-See: [Module imports](http://babeljs.io/docs/learn-es2015/#modules)
+See: [Module imports](http://babeljs.io/learn-es2015/#ecmascript-2015-features-modules)
 
 ### Exports
 
@@ -451,7 +482,7 @@ export const pi = 3.14159
 ```
 
 `export` is the new `module.exports`.
-See: [Module exports](http://babeljs.io/docs/learn-es2015/#modules)
+See: [Module exports](http://babeljs.io/learn-es2015/#ecmascript-2015-features-modules)
 
 Generators
 ----------
@@ -473,7 +504,7 @@ gen.next().value  // → 2
 ```
 
 It's complicated.
-See: [Generators](http://babeljs.io/docs/learn-es2015/#generators)
+See: [Generators](http://babeljs.io/learn-es2015/#ecmascript-2015-features-generators)
 
 ### For..of iteration
 
@@ -484,4 +515,4 @@ for (let i of iterable) {
 ```
 
 For iterating through generators and arrays.
-See: [For..of iteration](http://babeljs.io/docs/learn-es2015/#iterators-for-of)
+See: [For..of iteration](http://babeljs.io/learn-es2015/#ecmascript-2015-features-iterators-for-of)
