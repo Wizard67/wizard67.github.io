@@ -25,6 +25,7 @@
 
     {% include 2017/search-form.html live=true %}
   </div>
+  {{site.pages.title}}
 
   <div class='pages-list' role='main'>
     {% for page in featured_pages %}
@@ -56,12 +57,6 @@
       {% endfor %}
     {% endfor %}
 
-    <div class='message item missing-message'>
-      <h3>See something missing?</h3>
-      <p>
-        <a class='push-button' href='{{ site.github.repository_url }}/issues/new?title=Cheatsheet%20request:%20APP_NAME_HERE'>Request cheatsheet</a>
-      </p>
-    </div>
   </div>
 </div>
 
