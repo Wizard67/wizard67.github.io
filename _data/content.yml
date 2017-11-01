@@ -1,10 +1,10 @@
 home:
-  title: "Rico's cheatsheets"
+  title: "Hello jekyll"
   tagline: |
-    Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a modest collection of cheatsheets I've written.
+    test.
 
 top_nav:
-  title: Devhints.io
+  title: hey~
   edit: Edit
   edit_on_github: Edit this page on GitHub
 
