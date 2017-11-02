@@ -26,7 +26,6 @@
 
     {% include 2017/search-form.html live=true %}
   </div>
-  {{site.pages.title}}
 
   <div class='pages-list' role='main'>
     {% for page in featured_pages %}
@@ -34,7 +33,7 @@
     {% endfor %}
 
     <h2 class='category item' data-js-searchable-header>
-      <span>Recently updated</span>
+      <span>近期更新</span>
     </h2>
 
     {% for page in recent_pages reversed %}
@@ -43,7 +42,7 @@
       {% endif %}
     {% endfor %}
 
-
+    <!-- main -->
     {% for category in site.data.categories.names %}
       <h2 class='category item' id='{{ category | downcase | replace: " ", "-" }}' data-js-searchable-header>
         <span>{{ category }}</span>

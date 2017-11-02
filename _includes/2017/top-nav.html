@@ -18,8 +18,6 @@ Params:
 
     {% unless include.noshare %}
       <div class='actions'>
-        {% include social-list.html class="social page-actions" page=include.page %}
-
         {% unless include.noedit %}
           <ul class='page-actions'>
             <li class='link github -button hint--bottom' data-hint='{{ site.data.content.top_nav.edit_on_github }}'>

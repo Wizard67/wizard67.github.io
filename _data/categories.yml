@@ -1,14 +1,5 @@
 enabled: true
 names:
-  - Ansible
-  - Apps
-  - CLI
-  - CSS
-  - Devops
-  - Elixir
-  - Git
-  - HTML
-  - JavaScript
   - JavaScript libraries
   - Jekyll
   - Ledger
