@@ -1,7 +1,6 @@
 ---
-full_title: "Devhints — TL;DR for developer documentation"
-description: "A ridiculous collection of web development cheatsheets"
-layout: 2017/home
-og_type: website
-type: home
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: home
 ---
