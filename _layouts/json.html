@@ -1,8 +1,7 @@
 [{% for post in site.api limit:5 %}
     {
         "title":"{{post.title}}",
-        "url":"{{site.url}}{{post.url}}",
-        "date":"{{post.date|date_to_string}}"
+        "url":"{{site.url}}{{post.url}}"
     }{% if forloop.last == false %},{% endif %}
 {% endfor %}
 ]
