@@ -14,7 +14,6 @@ exclude:
   - README.md
   - node_modules
 
-
 # Markdown
 
 highlighter: false
@@ -26,9 +25,21 @@ kramdown:
   syntax_highlighter_opts:
     disable: true
 
+# Path
+
+collections:
+  api:
+    output: true
+
 # Defaults
 
-
+defaults:
+  - scope:
+      path: ""
+      type: api
+    values:
+      layout: json
+      permalink: /api/test.json
 
 # Site info
 

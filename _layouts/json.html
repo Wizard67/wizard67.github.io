@@ -1,8 +1,7 @@
 ---
 layout: nil
 ---
-
-[{% for post in site.posts limit:5 %}
+[{% for post in site.api limit:5 %}
     {
         "title":"{{post.title}}",
         "url":"{{site.url}}{{post.url}}",
