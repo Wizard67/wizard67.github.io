@@ -5,11 +5,12 @@
   "author": "Wizard67 <wizard67.hjn@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "start": "npm run dev",
-    "build": "node build/build.js",
-    "jekyll": "bundle exec jekyll server",
-    "all": "run-p dev jekyll"
+    "dev:vue": "node build/dev-server.js",
+    "dev:jekyll": "bundle exec jekyll server",
+    "dev": "run-p dev:jekyll dev:vue",
+    "build:jekyll": "bundle exec jekyll build",
+    "build:vue": "node build/build.js",
+    "build": "run-s build:vue build:jekyll"
   },
   "dependencies": {
     "axios": "^0.16.2",
