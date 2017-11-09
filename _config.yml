@@ -13,7 +13,7 @@ exclude:
   - package-lock.json
   - README.md
   - node_modules
-  - index.html
+  - template.html
 
 # Markdown
 
