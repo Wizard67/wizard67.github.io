@@ -1,8 +1,6 @@
 <template>
     <main>
-        <h1></h1>
-        <img src="./../../assets/logo.png">
-        <HelloWorld></HelloWorld>
+        <!-- <HelloWorld></HelloWorld> -->
     </main>
 </template>
 
@@ -13,10 +11,7 @@ export default {
     name: 'index',
     data() {
         return {
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
+            
         }
     },
     computed: {
