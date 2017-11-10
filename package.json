@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev:vue": "node build/dev-server.js",
-    "dev:jekyll": "bundle exec jekyll server",
+    "dev:jekyll": "bundle exec jekyll build --watch",
     "dev": "run-p dev:jekyll dev:vue",
     "build:jekyll": "bundle exec jekyll build",
     "build:vue": "node build/build.js",
