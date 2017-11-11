@@ -1,6 +1,6 @@
 <template>
     <main>
-        <!-- <HelloWorld></HelloWorld> -->
+        <HelloWorld></HelloWorld>
     </main>
 </template>
 
