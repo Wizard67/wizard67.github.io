@@ -3,7 +3,6 @@ exclude:
   - config
   - image
   - src
-  - static
   - .babelrc
   - .gitignore
   - .postcssrc.js
