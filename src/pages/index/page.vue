@@ -1,11 +1,10 @@
 <template>
     <main>
-        <HelloWorld></HelloWorld>
+
     </main>
 </template>
 
 <script>
-import HelloWorld from '@/components/hello-world'
 export default {
     path: '/',
     name: 'index',
@@ -20,7 +19,7 @@ export default {
         }
     },
     components: {
-        HelloWorld
+
     }
 }
 </script>
