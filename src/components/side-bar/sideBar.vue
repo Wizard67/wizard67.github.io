@@ -1,9 +1,9 @@
 <template>
     <aside class="sideBar">
         <div class="nav-wrap">
-            <author :avatar="info.avatar" :links="info.links"></author>
+            <author :avatar="author.avatar" :links="author.links"></author>
     
-            <nav-bar></nav-bar>
+            <nav-bar :nav="nav"></nav-bar>
         </div>
 
         <catalogue></catalogue>
@@ -17,28 +17,12 @@ import catalogue from "./catalogue.vue"
 
 export default {
     name: 'sideBar',
+    props: [
+        'author',
+        'nav'
+    ],
     data() {
         return {
-            info: {
-                avatar: '/static/images/avatar.jpg',
-                links: [
-                    {
-                        name: 'github',
-                        link: ''
-                    },
-                    {
-                        name: 'weibo',
-                        link: ''
-                    },
-                    {
-                        name: 'weixin',
-                        link: ''
-                    }
-                ]
-            },
-            catalogue: {
-                
-            }
         }
     },
     components: {
