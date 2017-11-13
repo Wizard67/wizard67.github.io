@@ -1,28 +1,24 @@
 <template>
     <div class="catalogue">
-        <h1></h1>
-        <h2>Essential Links</h2>
-        <ul>
-            <li><a href="">Core Docs</a></li>
-            <li><a href="">Forum</a></li>
-            <li><a href="">Community Chat</a></li>
-            <li><a href="">Twitter</a></li>
-            <br>
-            <li><a href="">Docs for This Template</a></li>
-        </ul>
-        <h2>Ecosystem</h2>
-        <ul>
-            <li><a href="">vue-router</a></li>
-            <li><a href="">vuex</a></li>
-            <li><a href="">vue-loader</a></li>
-            <li><a href="">awesome-vue</a></li>
-        </ul>
+        <template v-for="(item, index) in catalogue">
+            <section :key="index">
+                <h2>{{ item.collections }}</h2>
+                <template v-for="(i, k) in item.item">
+                    <li :key="k">
+                        <a :href="i['link']">{{i['title']}}</a>
+                    </li>
+                </template>
+            </section>
+        </template>
     </div>
 </template>
 
 <script>
 export default {
     name: 'catalogue',
+    props: [
+        'catalogue'
+    ],
     data () {
         return {
         }

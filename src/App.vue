@@ -18,14 +18,6 @@ export default {
                     {
                         name: 'github',
                         link: ''
-                    },
-                    {
-                        name: 'weibo',
-                        link: ''
-                    },
-                    {
-                        name: 'weixin',
-                        link: ''
                     }
                 ]
             },
@@ -40,9 +32,7 @@ export default {
                                 {title: 'Forum', link: ''},
                                 {title: 'Community', link: ''},
                                 {title: 'Chat', link: ''},
-                                {title: 'Twitter', link: ''},
-                                {title: 'Docs for This ', link: ''},
-                                {title: 'Template', link: ''}
+                                {title: 'Twitter', link: ''}
                             ]
                         },
                         {
@@ -52,6 +42,25 @@ export default {
                                 {title: 'vuex', link: ''},
                                 {title: 'vue-loader', link: ''},
                                 {title: 'awesome-vue', link: ''}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    index: '后端',
+                    catalogue: [
+                        {
+                            collections: 'Essential Links',
+                            item: [
+                                {title: 'Core Docs', link: ''},
+                                {title: 'Forum', link: ''}
+                            ]
+                        },
+                        {
+                            collections: 'EEcosystem',
+                            item: [
+                                {title: 'vue-router', link: ''},
+                                {title: 'vuex', link: ''}
                             ]
                         }
                     ]

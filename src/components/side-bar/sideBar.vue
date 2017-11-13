@@ -1,12 +1,10 @@
 <template>
     <aside class="sideBar">
         <div class="nav-wrap">
-            <author :avatar="author.avatar" :links="author.links"></author>
-    
-            <nav-bar :nav="nav"></nav-bar>
+            <author :avatar="author.avatar" :links="author.links"></author>   
+            <nav-bar :nav="nav" @getIndex="currentIndex"></nav-bar>
         </div>
-
-        <catalogue></catalogue>
+        <catalogue :catalogue="catalogue"></catalogue>
     </aside>
 </template>
 
@@ -23,6 +21,17 @@ export default {
     ],
     data() {
         return {
+            index: '前端'
+        }
+    },
+    methods: {
+        currentIndex(index){
+            this.index = index
+        }
+    },
+    computed: {
+        catalogue() {
+            return this.nav.filter(item => item.index === this.index)[0].catalogue
         }
     },
     components: {
@@ -39,7 +48,7 @@ export default {
 .sideBar {
     @include _flex( start );
 
-    width: 180px;
+    width: 600px;
     padding: 40px 10px;
 
     .author {

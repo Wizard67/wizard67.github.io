@@ -1,16 +1,26 @@
 <template>
     <ul class="catalogueList">
-        <li class="catalogueList__item">
-            前端
-        </li>
-        <li class="catalogueList__item">
-            后端
-        </li>
+        <template v-for="(item, index) in nav">
+            <li class="catalogueList__item" :key="index" @click="getIndex(item.index)">
+                {{item.index}}
+            </li>
+        </template>
     </ul>
 </template>
 
 <script>
 export default {
-    name: 'navBar'
+    name: 'navBar',
+    props: [
+        'nav'
+    ],
+    methods: {
+        getIndex(index){
+            this.$emit('getIndex', index)
+        },
+    },
+    mounted() {
+        // this.$emit('getIndex', this.nav[0].index)
+    }
 }
 </script>
