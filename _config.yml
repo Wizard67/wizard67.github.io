@@ -30,6 +30,10 @@ kramdown:
 collections:
   api:
     output: true
+  articles:
+    output: true
+  notes:
+    output: true
 
 # Defaults
 
@@ -40,6 +44,11 @@ defaults:
     values:
       layout: json
       permalink: /api/test.json
+  - scope:
+      path: ""
+      type: articles
+    values:
+      layout: article
 
 # Site info
 
