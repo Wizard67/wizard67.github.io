@@ -1,17 +1,26 @@
-const state = {
+import ajax from '@/configs/axios'
 
+const state = {
+    nav: ""
 }
 
 const getters = {
 
 }
 
-const actions = {
-
+const mutations = {
+    setNav(state, value) {
+        state.nav = value
+    }
 }
 
-const mutations = {
-
+const actions = {
+    getNav({dispatch, commit, state}) {
+        ajax.get(`./api/test.json`, { responseType: 'json' })
+            .then((res) => {
+                commit('setNav', res.data)
+            })
+    }
 }
 
 export default {

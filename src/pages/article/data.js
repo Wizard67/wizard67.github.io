@@ -18,9 +18,7 @@ const actions = {
     getArticle({dispatch, commit, state}, articleName) {
         ajax.get(`./articles/${articleName}.html`, { responseType: 'text' })
             .then((res) => {
-                console.log(res)
                 commit('setArticl', res.data)
-                console.log('done')
             })
     }
 }

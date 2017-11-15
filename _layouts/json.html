@@ -1,5 +1,7 @@
-[{% for post in site.api limit:5 %}
-    {
+[{% for post in site.articles limit:5 %}
+    {   
+        "index":"{{post.index}}",
+        "collections":"{{post.collections}}",
         "title":"{{post.title}}",
         "url":"{{site.url}}{{post.url}}"
     }{% if forloop.last == false %},{% endif %}

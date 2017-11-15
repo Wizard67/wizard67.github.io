@@ -1,6 +1,7 @@
 <template>
     <div id="app">
         <side-bar :author="author" :nav="nav"></side-bar>
+        {{article}}
         <router-view/>
     </div>
 </template>
@@ -45,28 +46,17 @@ export default {
                             ]
                         }
                     ]
-                },
-                {
-                    index: '后端',
-                    catalogue: [
-                        {
-                            collections: 'Essential Links',
-                            item: [
-                                {title: 'Core Docs', link: ''},
-                                {title: 'Forum', link: ''}
-                            ]
-                        },
-                        {
-                            collections: 'EEcosystem',
-                            item: [
-                                {title: 'vue-router', link: ''},
-                                {title: 'vuex', link: ''}
-                            ]
-                        }
-                    ]
                 }
             ]
         }
+    },
+    computed: {
+        article() {
+            return this.$store.state.nav
+        }
+    },
+    created() {
+        this.$store.dispatch('getNav')
     },
     components: {
         sideBar
