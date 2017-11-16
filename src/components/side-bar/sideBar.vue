@@ -1,10 +1,10 @@
 <template>
     <aside class="sideBar">
         <div class="nav-wrap">
-            <author :avatar="author.avatar" :links="author.links"></author>   
+            <author :avatar="author.avatar" :links="author.links"></author>
             <nav-bar :nav="nav" @getIndex="currentIndex"></nav-bar>
         </div>
-        <catalogue :catalogue="catalogue"></catalogue>
+        <catalogue :collections="collections"></catalogue>
     </aside>
 </template>
 
@@ -30,8 +30,8 @@ export default {
         }
     },
     computed: {
-        catalogue() {
-            return this.nav.filter(item => item.index === this.index)[0].catalogue
+        collections() {
+            return this.nav.filter(item => item.column === this.index)[0].collections
         }
     },
     components: {

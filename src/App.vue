@@ -1,6 +1,7 @@
 <template>
     <div id="app">
         <side-bar :author="author" :nav="nav"></side-bar>
+        <hr>
         {{article}}
         <router-view/>
     </div>
@@ -8,6 +9,7 @@
 
 <script>
 import sideBar from '@/components/side-bar'
+import _ from 'lodash/object'
 
 export default {
     name: 'app',
@@ -24,25 +26,40 @@ export default {
             },
             nav: [
                 {
-                    index: '前端',
-                    catalogue: [
+                    column: '前端',
+                    collections: [
                         {
-                            collections: 'Essential Links',
-                            item: [
-                                {title: 'Core Docs', link: ''},
-                                {title: 'Forum', link: ''},
-                                {title: 'Community', link: ''},
-                                {title: 'Chat', link: ''},
-                                {title: 'Twitter', link: ''}
+                            collection: 'Essential Links',
+                            items: [
+                                {title: 'Core Docs', url: ''},
+                                {title: 'Forum', url: ''},
+                                {title: 'Community', url: ''},
+                                {title: 'Chat', url: ''},
+                                {title: 'Twitter', url: ''}
                             ]
                         },
                         {
-                            collections: 'EEcosystem',
-                            item: [
-                                {title: 'vue-router', link: ''},
-                                {title: 'vuex', link: ''},
-                                {title: 'vue-loader', link: ''},
-                                {title: 'awesome-vue', link: ''}
+                            collection: 'EEcosystem',
+                            items: [
+                                {title: 'vue-router', url: ''},
+                                {title: 'vuex', url: ''},
+                                {title: 'vue-loader', url: ''},
+                                {title: 'awesome-vue', url: ''}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    column: '后端',
+                    collections: [
+                        {
+                            collection: 'Essential Links',
+                            items: [
+                                {title: 'Core Docs', url: ''},
+                                {title: 'Forum', url: ''},
+                                {title: 'Community', url: ''},
+                                {title: 'Chat', url: ''},
+                                {title: 'Twitter', url: ''}
                             ]
                         }
                     ]
@@ -57,6 +74,31 @@ export default {
     },
     created() {
         this.$store.dispatch('getNav')
+
+        var a = {
+            "column": "后端",
+            "collections": [{
+                "collection": "articles",
+                "items": [{
+                    "title": "test",
+                    "date": "2017-11-16 15:52:55 +0800",
+                    "url": "/articles/hello.html"
+                }]
+            }]
+        }
+        var b = {
+            "column": "前端",
+            "collections": [{
+                "collection": "articles",
+                "items": [{
+                    "title": "test",
+                    "date": "2017-11-16 15:52:55 +0800",
+                    "url": "/articles/test.html"
+                }]
+            }]
+        }
+        var c = Object.assign({},a,b)
+        console.log(c)
     },
     components: {
         sideBar

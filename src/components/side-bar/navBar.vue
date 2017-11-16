@@ -1,8 +1,8 @@
 <template>
     <ul class="catalogueList">
         <template v-for="(item, index) in nav">
-            <li class="catalogueList__item" :key="index" @click="getIndex(item.index)">
-                {{item.index}}
+            <li class="catalogueList__item" :key="index" @click="getIndex(item.column)">
+                {{item.column}}
             </li>
         </template>
     </ul>

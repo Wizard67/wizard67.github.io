@@ -1,5 +1,5 @@
 ---
-column: 前端
+column: 后端
 collection: TEST
 title: test
 ---
