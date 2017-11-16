@@ -1,6 +1,7 @@
 <template>
     <div id="app">
         <side-bar :author="author" :nav="nav"></side-bar>
+        
         <hr>
         {{article}}
         <router-view/>
@@ -10,6 +11,7 @@
 <script>
 import sideBar from '@/components/side-bar'
 import _ from 'lodash/object'
+const merge = require('merge-objects')
 
 export default {
     name: 'app',
@@ -69,36 +71,48 @@ export default {
     },
     computed: {
         article() {
-            return this.$store.state.nav
+            const data = [
+            {
+                "column": "后端",
+                "collections": [{
+                    "collection": "articles",
+                    "items": [{
+                        "title": "test",
+                        "date": "2017-11-16 22:14:08 +0800",
+                        "url": "/articles/hello.html"
+                    }]
+                }]
+            },
+
+            {
+                "column": "后端",
+                "collections": [{
+                    "collection": "articles",
+                    "items": [{
+                        "title": "test",
+                        "date": "2017-11-16 22:14:08 +0800",
+                        "url": "/articles/test.html"
+                    }]
+                }]
+            }]
+
+            const d = function(o1, o2) {
+                console.log('ok')
+                const o = Array.isArray(o1)? o1: [o1];
+                const r = o.filter((item)=>{
+                    return item.column === o2.column
+                })
+
+                console.log(r)
+            }
+
+            d(data[0],data[1])
+
+            return
         }
     },
     created() {
         this.$store.dispatch('getNav')
-
-        var a = {
-            "column": "后端",
-            "collections": [{
-                "collection": "articles",
-                "items": [{
-                    "title": "test",
-                    "date": "2017-11-16 15:52:55 +0800",
-                    "url": "/articles/hello.html"
-                }]
-            }]
-        }
-        var b = {
-            "column": "前端",
-            "collections": [{
-                "collection": "articles",
-                "items": [{
-                    "title": "test",
-                    "date": "2017-11-16 15:52:55 +0800",
-                    "url": "/articles/test.html"
-                }]
-            }]
-        }
-        var c = Object.assign({},a,b)
-        console.log(c)
     },
     components: {
         sideBar
