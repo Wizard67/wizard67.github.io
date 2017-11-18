@@ -1,6 +1,6 @@
 ---
 column: 后端
-collection: TEST
+category: hello
 title: test
 ---
 # test Article

@@ -12,3 +12,32 @@
     }{% if forloop.last == false %},{% endif %}
 {% endfor %}
 ]
+{% comment %}
+    使用 capture 标记捕获遍历的字符串
+{% endcomment %}
+{% capture getColumns %}{% for page in site.articles %}{{ page.column | lstrip }},{% endfor %}{% endcapture %}
+
+{% comment %}
+    将捕获到的字符串分割为数组，处理左右空白符并移除末项，最后确保唯一值
+{% endcomment %}
+{% assign uniqColumns = getColumns | remove: "\n" | split: "," | compact | pop | uniq %}
+
+[{% for column in uniqColumns %}
+    {% for page in site.articles %}
+        {% if page.column == column %}
+            {{ page.category }}
+        {% endif %}
+    {% endfor %}
+    {
+        "column": "{{column}}",
+        "collections": [{
+            "collection": "{{post.collection}}",
+            "items": [{
+                "title": "{{post.title}}",
+                "date": "{{post.date}}",
+                "url": "{{site.url}}{{post.url}}"
+            }]
+        }]
+    }{% if forloop.last == false %},{% endif %}
+{% endfor %}
+]

@@ -1,6 +1,6 @@
 ---
 column: 前端
-collection: TEST
+category: try
 title: test
 ---
 # test
