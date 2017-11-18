@@ -1,43 +1,50 @@
+{% comment %}
 [{% for post in site.articles %}
     {
         "column": "{{post.column}}",
-        "collections": [{
-            "collection": "{{post.collection}}",
+        "categorys": [{
+            "category": "{{post.category}}",
             "items": [{
                 "title": "{{post.title}}",
                 "date": "{{post.date}}",
-                "url": "{{site.url}}{{post.url}}"
+                "url": "{{post.url}}"
             }]
         }]
     }{% if forloop.last == false %},{% endif %}
 {% endfor %}
 ]
+{% endcomment %}
 {% comment %}
     使用 capture 标记捕获遍历的字符串
 {% endcomment %}
-{% capture getColumns %}{% for page in site.articles %}{{ page.column | lstrip }},{% endfor %}{% endcapture %}
+{% capture getColumns %}{% for page in site.articles %}{{ page.column }},{% endfor %}{% endcapture %}
 
 {% comment %}
     将捕获到的字符串分割为数组，处理左右空白符并移除末项，最后确保唯一值
 {% endcomment %}
-{% assign uniqColumns = getColumns | remove: "\n" | split: "," | compact | pop | uniq %}
+{% assign uniqColumns = getColumns | split: "," | compact | uniq %}
 
 [{% for column in uniqColumns %}
-    {% for page in site.articles %}
-        {% if page.column == column %}
-            {{ page.category }}
-        {% endif %}
-    {% endfor %}
+{% capture getCategory %}{% for page in site.articles %}{% if page.column == column %}{{ page.category }},{% endif %}{% endfor %}{% endcapture %}
+{% assign uniqCategory = getCategory | split: "," | compact | uniq %}
     {
         "column": "{{column}}",
-        "collections": [{
-            "collection": "{{post.collection}}",
-            "items": [{
-                "title": "{{post.title}}",
-                "date": "{{post.date}}",
-                "url": "{{site.url}}{{post.url}}"
-            }]
-        }]
+        "categorys": [
+        {% for category in uniqCategory %}
+        {
+            "category": "{{category}}",
+            "items": [
+            {% for page in site.articles %}
+                {% if page.column == column and page.category == category %}
+                    {
+                        "title": "{{page.title}}",
+                        "date": "{{page.date}}",
+                        "url": "{{page.url}}"
+                    }{% if forloop.last == false %},{% endif %}
+                {% endif %}
+            {% endfor %}
+            ]
+        }{% if forloop.last == false %},{% endif %}
+        {% endfor %}]
     }{% if forloop.last == false %},{% endif %}
-{% endfor %}
-]
+{% endfor %}]
