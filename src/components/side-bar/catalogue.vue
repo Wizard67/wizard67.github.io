@@ -5,7 +5,7 @@
                 <h2>{{ item.category }}</h2>
                 <template v-for="(i, k) in item.items">
                     <li :key="k">
-                        <a :href="i['url']">{{i['title']}}</a>
+                        <a href="#">{{i['title']}}</a>
                     </li>
                 </template>
             </section>

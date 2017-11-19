@@ -1,7 +1,22 @@
 import ajax from '@/configs/axios'
 
 const state = {
-    nav: ""
+    nav: [
+        {
+            "column": "前端",
+            "categorys": [
+                {
+                    "category": "category",
+                    "items": [
+                        {
+                            "title": "title",
+                            "url": "/"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
 
 const getters = {
