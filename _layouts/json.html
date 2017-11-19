@@ -1,32 +1,38 @@
 {% comment %}
-[{% for post in site.articles %}
-    {
-        "column": "{{post.column}}",
-        "categorys": [{
-            "category": "{{post.category}}",
-            "items": [{
-                "title": "{{post.title}}",
-                "date": "{{post.date}}",
-                "url": "{{post.url}}"
+    输出格式：
+    [
+        {
+            "column": "column",
+            "categorys": [{
+                "category": "category",
+                "items": [{
+                    "title": "title",
+                    "date": "date",
+                    "url": "url"
+                }]
             }]
-        }]
-    }{% if forloop.last == false %},{% endif %}
-{% endfor %}
-]
+        }
+    ]
+
+    {
+        "title": "{{page.title}}",
+        "date": "{{page.date}}",
+        "url": "{{page.url}}"
+    },
 {% endcomment %}
 {% comment %}
-    使用 capture 标记捕获遍历的字符串
+    eg. 使用 capture 标记捕获遍历的字符串
 {% endcomment %}
 {% capture getColumns %}{% for page in site.articles %}{{ page.column }},{% endfor %}{% endcapture %}
 
 {% comment %}
-    将捕获到的字符串分割为数组，处理左右空白符并移除末项，最后确保唯一值
+    eg. 将捕获到的字符串分割为数组，处理左右空白符并移除末项，最后确保唯一值
 {% endcomment %}
-{% assign uniqColumns = getColumns | split: "," | compact | uniq %}
+{% assign uniqColumns = getColumns | split: "," | compact | uniq | sort %}
 
 [{% for column in uniqColumns %}
 {% capture getCategory %}{% for page in site.articles %}{% if page.column == column %}{{ page.category }},{% endif %}{% endfor %}{% endcapture %}
-{% assign uniqCategory = getCategory | split: "," | compact | uniq %}
+{% assign uniqCategory = getCategory | split: "," | compact | uniq | sort %}
     {
         "column": "{{column}}",
         "categorys": [
@@ -34,17 +40,21 @@
         {
             "category": "{{category}}",
             "items": [
-            {% for page in site.articles %}
-                {% if page.column == column and page.category == category %}
-                    {
-                        "title": "{{page.title}}",
-                        "date": "{{page.date}}",
-                        "url": "{{page.url}}"
-                    }{% if forloop.last == false %},{% endif %}
-                {% endif %}
-            {% endfor %}
+
+                {% capture getItems %}{% for page in site.articles %}{% if page.column == column and page.category == category %}
+                {
+                    "title": "{{page.title}}",
+                    "date": "{{page.date}}",
+                    "url": "{{page.url}}"
+                }@{% endif %}{% endfor %}{% endcapture %}
+                {% assign uniqItems = getItems | split: "@" | compact | uniq | sort %}
+
+                {% for item in uniqItems %}
+                    {{item}}{% if forloop.last == false %},{% endif %}
+                {% endfor %}
             ]
         }{% if forloop.last == false %},{% endif %}
-        {% endfor %}]
+        {% endfor %}
+        ]
     }{% if forloop.last == false %},{% endif %}
 {% endfor %}]
