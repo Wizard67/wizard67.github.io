@@ -4,7 +4,7 @@
             <author :avatar="author.avatar" :links="author.links"></author>
             <nav-bar :nav="nav" @getIndex="currentIndex"></nav-bar>
         </div>
-        <catalogue :collections="collections"></catalogue>
+        <catalogue :categorys="categorys"></catalogue>
     </aside>
 </template>
 
@@ -30,8 +30,8 @@ export default {
         }
     },
     computed: {
-        collections() {
-            return this.nav.filter(item => item.column === this.index)[0].collections
+        categorys() {
+            return this.nav.filter(item => item.column === this.index)[0].categorys
         }
     },
     components: {

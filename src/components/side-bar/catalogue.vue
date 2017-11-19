@@ -1,8 +1,8 @@
 <template>
-    <div class="collections">
-        <template v-for="(item, index) in collections">
+    <div class="categorys">
+        <template v-for="(item, index) in categorys">
             <section :key="index">
-                <h2>{{ item.collection }}</h2>
+                <h2>{{ item.category }}</h2>
                 <template v-for="(i, k) in item.items">
                     <li :key="k">
                         <a :href="i['url']">{{i['title']}}</a>
@@ -15,9 +15,9 @@
 
 <script>
 export default {
-    name: 'collections',
+    name: 'categorys',
     props: [
-        'collections'
+        'categorys'
     ],
     data () {
         return {

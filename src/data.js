@@ -15,6 +15,7 @@ const mutations = {
 }
 
 const actions = {
+    
     getNav({dispatch, commit, state}) {
         ajax.get(`./api/test.json`, { responseType: 'json' })
             .then((res) => {

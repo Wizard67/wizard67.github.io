@@ -18,9 +18,6 @@ export default {
         getIndex(index){
             this.$emit('getIndex', index)
         },
-    },
-    mounted() {
-        // this.$emit('getIndex', this.nav[0].index)
     }
 }
 </script>
