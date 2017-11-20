@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <side-bar :author="author" :nav="nav"></side-bar>
-        <hr>
+        <side-bar :author="author" :nav="nav"/>
+
         <router-view/>
     </div>
 </template>
@@ -12,19 +12,12 @@ import sideBar from '@/components/side-bar'
 export default {
     name: 'app',
     data() {
-        return {
-            author: {
-                avatar: '/static/images/avatar.jpg',
-                links: [
-                    {
-                        name: 'github',
-                        link: ''
-                    }
-                ]
-            }
-        }
+        return {}
     },
     computed: {
+        author() {
+            return this.$store.state.author
+        },
         nav() {
             return this.$store.state.nav
         }

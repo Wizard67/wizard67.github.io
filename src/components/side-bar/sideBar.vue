@@ -1,18 +1,60 @@
 <template>
-    <aside class="sideBar">
+    <aside>
         <div class="nav-wrap">
-            <author :avatar="author.avatar" :links="author.links"></author>
-            <nav-bar :nav="nav" @getIndex="currentIndex"></nav-bar>
+            
+            <!-- author -->
+            <div class="author">
+                <!-- avatar -->
+                <img class="author__avatar" alt="avatar" draggable="false"
+                     :src="author.avatar" />
+                <div class="author__links">
+
+                    <!-- icon -->
+                    <template v-for="(i, k) in author.links">
+                        <a class="icon" :key="k">
+                            <i :class="`fa fa-${i.name}`" aria-hidden="true"></i>
+                        </a>
+                    </template>
+ 
+                </div>
+            </div>
+
+            <!-- nav -->
+            <ul class="nav">
+                <template v-for="(i, k) in nav">
+                    <li class="nav__item" :key="k" @click="getIndex(i.column)">
+                        <a href="#">{{i.column}}</a>
+                    </li>
+                </template>
+            </ul>
+
         </div>
-        <catalogue :categorys="categorys"></catalogue>
+
+        <!-- category -->
+        <div class="category">
+            
+            <template v-for="(i, k) in categorys">
+                <section class="category__item" :key="k">
+                    <h2 class="category__title">
+                        {{ i.category }}
+                    </h2>
+
+                    <ul class="nav -category">
+                        <template v-for="(i1, k1) in i.items">
+                            <li class="nav__item" :key="k1">
+                                <a href="#">{{i1['title']}}</a>
+                            </li>
+                        </template>
+                    </ul>
+
+                </section>
+            </template>
+
+        </div>
     </aside>
 </template>
 
 <script>
-import author from "./author.vue"
-import navBar from "./navBar.vue"
-import catalogue from "./catalogue.vue"
-
 export default {
     name: 'sideBar',
     props: [
@@ -25,7 +67,7 @@ export default {
         }
     },
     methods: {
-        currentIndex(index){
+        getIndex(index){
             this.index = index
         }
     },
@@ -33,11 +75,6 @@ export default {
         categorys() {
             return this.nav.filter(item => item.column === this.index)[0].categorys
         }
-    },
-    components: {
-        author,
-        navBar,
-        catalogue
     }
 }
 </script>
@@ -45,7 +82,7 @@ export default {
 <style lang="scss">
 @import "~@/assets/css/utils";
 
-.sideBar {
+aside {
     @include _flex( start );
 
     width: 600px;
@@ -60,10 +97,6 @@ export default {
             box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),
                         0 1px 10px 0 rgba(0,0,0,.12),
                         0 2px 4px -1px rgba(0,0,0,.3);
-        }
-
-        &__link {
-            // @include _flex( between );
         }
     }
 

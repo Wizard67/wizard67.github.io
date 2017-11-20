@@ -1,6 +1,15 @@
 import ajax from '@/configs/axios'
 
 const state = {
+    author: {
+        avatar: '/static/images/avatar.jpg',
+        links: [
+            {
+                name: 'github',
+                link: ''
+            }
+        ]
+    },
     nav: [
         {
             "column": "前端",
@@ -32,10 +41,8 @@ const mutations = {
 const actions = {
     
     getNav({dispatch, commit, state}) {
-        ajax.get(`./api/test.json`, { responseType: 'json' })
-            .then((res) => {
-                commit('setNav', res.data)
-            })
+        ajax.get('./api/test.json')
+            .then((res) => commit('setNav', res.data))
     }
 }
 
