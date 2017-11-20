@@ -42,7 +42,7 @@
                     <ul class="nav -category">
                         <template v-for="(i1, k1) in i.items">
                             <li class="nav__item" :key="k1">
-                                <a href="#">{{i1['title']}}</a>
+                                <router-link :to="{name:'article', params: { title: i1['title'] }}">{{i1['title']}}</router-link>
                             </li>
                         </template>
                     </ul>

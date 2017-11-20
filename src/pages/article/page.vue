@@ -11,7 +11,11 @@ export default {
     name: 'article',
     data() {
         return {
-            
+        }
+    },
+    watch: {
+        $route(n){
+            this.$store.dispatch('articles/getArticle', n.params.title)
         }
     },
     computed: {
@@ -20,7 +24,7 @@ export default {
         }
     },
     mounted(){
-        this.$store.dispatch('articles/getArticle','test')
+        this.$store.dispatch('articles/getArticle', this.$route.params.title)
     },
     components: {
 
