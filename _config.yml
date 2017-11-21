@@ -34,6 +34,8 @@ collections:
     output: true
   notes:
     output: true
+  demos:
+    output: true
 
 # Defaults
 
@@ -49,6 +51,19 @@ defaults:
       type: articles
     values:
       layout: article
+      column: 前端
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: article
+      column: Note
+  - scope:
+      path: ""
+      type: demos
+    values:
+      layout: article
+      column: Demo
 
 # Site info
 
