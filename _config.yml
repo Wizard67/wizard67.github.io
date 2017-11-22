@@ -28,8 +28,6 @@ kramdown:
 # Path
 
 collections:
-  api:
-    output: true
   articles:
     output: true
   notes:
@@ -42,16 +40,10 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: api
-    values:
-      layout: json
-      permalink: /api/test.json
-  - scope:
-      path: ""
       type: articles
     values:
       layout: article
-      column: 前端
+      column: Article
   - scope:
       path: ""
       type: notes

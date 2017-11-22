@@ -41,7 +41,7 @@ const mutations = {
 const actions = {
     
     getNav({dispatch, commit, state}) {
-        ajax.get('./api/test.json')
+        ajax.get('./api/nav.json')
             .then((res) => commit('setNav', res.data))
     }
 }

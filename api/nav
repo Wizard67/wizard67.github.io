@@ -1,3 +1,7 @@
+---
+permalink: /api/nav.json
+---
+
 {% comment %}
     输出格式：
     [
