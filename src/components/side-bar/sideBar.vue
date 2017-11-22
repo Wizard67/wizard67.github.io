@@ -42,7 +42,7 @@
                     <ul class="nav -category">
                         <template v-for="(i1, k1) in i.items">
                             <li class="nav__item" :key="k1">
-                                <router-link :to="{name:'article', params: { title: i1['title'] }}">{{i1['title']}}</router-link>
+                                <router-link :to="{name:index.toLowerCase(), params: { title: i1['title'] }}">{{i1['title']}}</router-link>
                             </li>
                         </template>
                     </ul>
@@ -63,7 +63,7 @@ export default {
     ],
     data() {
         return {
-            index: '前端'
+            index: this.nav[0].column
         }
     },
     methods: {

@@ -12,7 +12,7 @@ const state = {
     },
     nav: [
         {
-            "column": "前端",
+            "column": "Article",
             "categorys": [
                 {
                     "category": "category",

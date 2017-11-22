@@ -9,16 +9,16 @@ const getters = {
 }
 
 const mutations = {
-    setArticl(state, value) {
+    setArticle(state, value) {
         state.article = value
     }
 }
 
 const actions = {
-    getArticle({dispatch, commit, state}, articleName) {
-        ajax.get(`./articles/${articleName}.html`, { responseType: 'text' })
+    getArticle({dispatch, commit, state}, target) {
+        ajax.get(`./articles/${target}.html`, { responseType: 'text' })
             .then((res) => {
-                commit('setArticl', res.data)
+                commit('setArticle', res.data)
             })
     }
 }
