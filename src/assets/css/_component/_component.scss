@@ -17,17 +17,25 @@
 
 .nav {
     &__item {
-        min-width: 100px;
+        line-height: 2.4;
+    }
+    &__item.-tag {
+        display: inline;
+        margin: 0 2px;
+
         line-height: 2.4;
     }
 }
 
 .category {
-    min-width: 280px;
+    width: 280px;
     padding: 30px 20px;
 
+    overflow: auto;
+
     &__title {
-        font-size: 1.5rem;
-        font-weight: 600;
+        color: $font-color-light;
+
+        font-size: 1rem;
     }
 }

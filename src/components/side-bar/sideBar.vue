@@ -39,12 +39,19 @@
                         {{ i.category }}
                     </p>
 
-                    <ul class="nav -category">
+                    <ul class="nav">
                         <template v-for="(i1, k1) in i.items">
-                            <li class="nav__item" :key="k1">
+                            <li class="nav__item -tag" :key="k1">
                                 <router-link :to="{name:index.toLowerCase(), params: { title: i1['title'] }}">{{i1['title']}}</router-link>
                             </li>
                         </template>
+                            <li class="nav__item -tag"><a href="#">Lissajous 曲线的动画演示</a></li>
+                            <li class="nav__item -tag"><a href="#">测试</a></li>
+                            <li class="nav__item -tag"><a href="#">测试</a></li>
+                            <li class="nav__item -tag"><a href="#">测试</a></li>
+                            <li class="nav__item -tag"><a href="#">测试</a></li>
+                            <li class="nav__item -tag"><a href="#">测试</a></li>
+                            <li class="nav__item -tag"><a href="#">测试</a></li>
                     </ul>
 
                 </section>
