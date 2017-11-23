@@ -35,9 +35,9 @@
             
             <template v-for="(i, k) in categorys">
                 <section class="category__item" :key="k">
-                    <h2 class="category__title">
+                    <p class="category__title">
                         {{ i.category }}
-                    </h2>
+                    </p>
 
                     <ul class="nav -category">
                         <template v-for="(i1, k1) in i.items">
@@ -79,26 +79,3 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import "~@/assets/css/utils";
-
-aside {
-    @include _flex( start );
-
-    width: 600px;
-    padding: 40px 10px;
-
-    .author {
-
-        &__avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),
-                        0 1px 10px 0 rgba(0,0,0,.12),
-                        0 2px 4px -1px rgba(0,0,0,.3);
-        }
-    }
-
-}
-</style>

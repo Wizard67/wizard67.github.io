@@ -1,6 +1,6 @@
 <template>
     <main>
-        <article v-html="demo">
+        <article class="type -demo" v-html="demo">
         </article>
     </main>
 </template>

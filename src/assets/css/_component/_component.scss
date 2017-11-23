@@ -1,0 +1,33 @@
+* {
+    // outline: 1px red solid;
+}
+
+
+
+.author {
+    &__avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),
+                    0 1px 10px 0 rgba(0,0,0,.12),
+                    0 2px 4px -1px rgba(0,0,0,.3);
+    }
+}
+
+.nav {
+    &__item {
+        min-width: 100px;
+        line-height: 2.4;
+    }
+}
+
+.category {
+    min-width: 280px;
+    padding: 30px 20px;
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}

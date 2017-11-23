@@ -6,10 +6,18 @@
   
   background-color: #f2f2f2;
   
+  aside {
+    @include _flex( start none );
+  }
+  
   main {
-    padding: 10px;
-    
     width: 100%;
+    padding: 10px;
+
     overflow: auto;
   }
+}
+
+.nav-wrap {
+  padding: 30px 20px;
 }

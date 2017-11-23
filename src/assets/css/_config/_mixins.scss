@@ -15,6 +15,8 @@
 
   display: flex;
   
+  $hasNone: false;
+
   @each $value in $list {
     @if( $value == column ){ flex-direction: column; }
     @if( $value == wrap ){ flex-wrap: wrap; }
@@ -28,8 +30,9 @@
     @if( $value == around ){ justify-content: space-around; }
     @if( $value == tight ){ align-content: flex-start; }
     @if( $value == auto ){ flex: auto; }
-    @if( $value == none ){ flex: none; }
+    @if( $value == none ){ flex: none; $hasNone: true;}
   }
 
-  width: 100%;
+  @if( $hasNone != true ){ width: 100%; }
+  
 }
