@@ -2,4 +2,4 @@
 category: note
 title: note
 ---
-# note
+# this is a note

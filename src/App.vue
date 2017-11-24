@@ -23,6 +23,7 @@ export default {
         }
     },
     created() {
+        console.log(this.$route.query.token)
         this.$store.dispatch('getNav')
     },
     components: {
