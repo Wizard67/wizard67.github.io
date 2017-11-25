@@ -9,7 +9,7 @@ const getters = {
 }
 
 const mutations = {
-    setNote(state, value) {
+    setValue(state, value) {
         state.note = value
     }
 }
@@ -24,7 +24,7 @@ const actions = {
 }
 
 export default {
-    namespace: 'notes',
+    namespace: 'note',
     namespaced: true,
     state,
     getters,

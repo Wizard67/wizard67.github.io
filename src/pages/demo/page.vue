@@ -15,16 +15,16 @@ export default {
     },
     watch: {
         $route(n){
-            this.$store.dispatch('demos/getDemo', n.params.title)
+            this.$store.dispatch('getContent', n)
         }
     },
     computed: {
         demo() {
-            return this.$store.state.demos.demo
+            return this.$store.state.demo.demo
         }
     },
     mounted(){
-        this.$store.dispatch('demos/getDemo', this.$route.params.title)
+        this.$store.dispatch('getContent', this.$route)
     },
     components: {
 

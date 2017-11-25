@@ -9,7 +9,7 @@ const getters = {
 }
 
 const mutations = {
-    setDemos(state, value) {
+    setValue(state, value) {
         state.demo = value
     }
 }
@@ -24,7 +24,7 @@ const actions = {
 }
 
 export default {
-    namespace: 'demos',
+    namespace: 'demo',
     namespaced: true,
     state,
     getters,

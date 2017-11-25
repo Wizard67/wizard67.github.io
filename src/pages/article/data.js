@@ -9,22 +9,17 @@ const getters = {
 }
 
 const mutations = {
-    setArticle(state, value) {
+    setValue(state, value) {
         state.article = value
     }
 }
 
 const actions = {
-    getArticle({dispatch, commit, state}, target) {
-        ajax.get(`./articles/${target}.html`, { responseType: 'text' })
-            .then((res) => {
-                commit('setArticle', res.data)
-            })
-    }
+
 }
 
 export default {
-    namespace: 'articles',
+    namespace: 'article',
     namespaced: true,
     state,
     getters,
