@@ -1,33 +1,19 @@
 <template>
     <main>
-        <article class="type -demo" v-html="demo">
+        <article class="type -demo" v-html="content">
         </article>
     </main>
 </template>
 
 <script>
+import GetContent from '../mixin'
+
 export default {
     path: '/demo/:title',
     name: 'demo',
+    mixins: [ GetContent('demo') ],
     data() {
-        return {
-        }
-    },
-    watch: {
-        $route(n){
-            this.$store.dispatch('getContent', n)
-        }
-    },
-    computed: {
-        demo() {
-            return this.$store.state.demo.demo
-        }
-    },
-    mounted(){
-        this.$store.dispatch('getContent', this.$route)
-    },
-    components: {
-
+        return {}
     }
 }
 </script>

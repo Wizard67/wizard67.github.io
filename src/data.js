@@ -48,8 +48,7 @@ const actions = {
     getContent({dispatch, commit, state}, route) {
         ajax.get(`./${route.name}s/${route.params.title}.html`, { responseType: 'text' })
         .then((res) => {
-            commit(`${route.name}/setValue`, res.data)
-            console.log(res.data)
+            commit(`${route.name}/setContent`, res.data)
         })
     }
 }

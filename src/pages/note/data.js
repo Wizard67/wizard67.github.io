@@ -1,7 +1,7 @@
 import ajax from '@/configs/axios'
 
 const state = {
-    note: ""
+    content: ""
 }
 
 const getters = {
@@ -9,18 +9,13 @@ const getters = {
 }
 
 const mutations = {
-    setValue(state, value) {
-        state.note = value
+    setContent(state, value) {
+        state.content = value
     }
 }
 
 const actions = {
-    getNote({dispatch, commit, state}, target) {
-        ajax.get(`./notes/${target}.html`, { responseType: 'text' })
-            .then((res) => {
-                commit('setNote', res.data)
-            })
-    }
+
 }
 
 export default {

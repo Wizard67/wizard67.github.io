@@ -1,7 +1,7 @@
 import ajax from '@/configs/axios'
 
 const state = {
-    article: ""
+    content: ""
 }
 
 const getters = {
@@ -9,8 +9,8 @@ const getters = {
 }
 
 const mutations = {
-    setValue(state, value) {
-        state.article = value
+    setContent(state, value) {
+        state.content = value
     }
 }
 
