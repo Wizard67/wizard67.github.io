@@ -1,7 +1,7 @@
 const GetContent = (namespace) => ({
     watch: {
         $route(n){
-            this.$store.dispatch('getContent', n)
+            this.$store.dispatch(`${namespace}/getContent`, n)
         }
     },
     computed: {
@@ -10,7 +10,7 @@ const GetContent = (namespace) => ({
         }
     },
     mounted(){
-        this.$store.dispatch('getContent', this.$route)
+        this.$store.dispatch(`${namespace}/getContent`, this.$route)
     }
 })
 
