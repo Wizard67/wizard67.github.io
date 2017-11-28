@@ -1,3 +1,5 @@
+import loadingAnimation from './utils'
+
 const GetContent = (namespace) => ({
     watch: {
         $route(n){
@@ -6,7 +8,7 @@ const GetContent = (namespace) => ({
     },
     computed: {
         content() {
-            return this.$store.state[namespace].content
+            return this.$store.state[namespace].content || loadingAnimation
         }
     },
     mounted(){

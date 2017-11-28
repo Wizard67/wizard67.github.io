@@ -16,10 +16,14 @@ const mutations = {
 
 const actions = {
     getContent({dispatch, commit, state}, route) {
+
+        commit('setContent', '')
+
         ajax.get(`./notes/${route.params.title}.html`)
             .then((res) => {
                 commit('setContent', res.data)
             })
+
     }
 }
 

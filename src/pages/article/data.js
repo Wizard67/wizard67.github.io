@@ -1,7 +1,7 @@
 import ajax from '@/configs/axios'
 
 const state = {
-    content: ""
+    content: ''
 }
 
 const getters = {
@@ -16,10 +16,14 @@ const mutations = {
 
 const actions = {
     getContent({dispatch, commit, state}, route) {
+
+        commit('setContent', '')
+
         ajax.get(`./articles/${route.params.title}.html`)
             .then((res) => {
                 commit('setContent', res.data)
             })
+
     }
 }
 
