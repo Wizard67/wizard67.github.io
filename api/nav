@@ -26,7 +26,7 @@ permalink: /api/nav.json
 {% endcomment %}
 {% comment %}
     获取 url 中指定位置的字符：eg. css
-{{ "/articles/css-%E6%8E%92%E7%89%88%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6.html" | split: "-" | first | split: "/" | last }}
+{{ "/articles/css-%E6%8E%92%E7%89%88%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6.html" | split: site.pathSplite | first | split: "/" | last }}
 {% endcomment %}
 {% comment %}
     eg. 使用 capture 标记捕获遍历的字符串
@@ -39,7 +39,7 @@ permalink: /api/nav.json
 {% assign uniqColumns = getColumns | split: "," | compact | uniq | sort %}
 
 [{% for column in uniqColumns %}
-{% capture getCategory %}{% for page in site.documents %}{% if page.column == column %}{{ page.url | split: "-" | first | split: "/" | last }},{% endif %}{% endfor %}{% endcapture %}
+{% capture getCategory %}{% for page in site.documents %}{% if page.column == column %}{{ page.url | split: site.pathSplite | first | split: "/" | last }},{% endif %}{% endfor %}{% endcapture %}
 {% assign uniqCategory = getCategory | split: "," | compact | uniq | sort %}
     {
         "column": "{{column}}",
@@ -49,9 +49,9 @@ permalink: /api/nav.json
             "category": "{{category}}",
             "items": [
 
-                {% capture getItems %}{% for page in site.documents %}{% assign pageCategory = page.url | split: "-" | first | split: "/" | last %}{% if page.column == column and pageCategory == category %}
+                {% capture getItems %}{% for page in site.documents %}{% assign pageCategory = page.url | split: site.pathSplite | first | split: "/" | last %}{% if page.column == column and pageCategory == category %}
                 {
-                    "title": "{{page.path | split: "-" | last | split: "." | first }}",
+                    "title": "{{page.path | split: site.pathSplite | last | split: "." | first }}",
                     "date": "{{page.date}}",
                     "url": "{{page.url}}"
                 }@{% endif %}{% endfor %}{% endcapture %}
