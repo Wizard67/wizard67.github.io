@@ -8,10 +8,12 @@
 <script>
 import GetContent from '../mixin'
 
+const namespace = 'article'
+
 export default {
-    path: '/article/:pre/:title',
-    name: 'article',
-    mixins: [ GetContent('article') ],
+    path: `/${namespace}/:pre/:title`,
+    name: `${namespace}`,
+    mixins: [ GetContent(`${namespace}`) ],
     data() {
         return {}
     }
