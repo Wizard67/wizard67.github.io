@@ -42,19 +42,16 @@ defaults:
       path: ""
       type: articles
     values:
-      layout: article
       column: Article
   - scope:
       path: ""
       type: notes
     values:
-      layout: article
       column: Note
   - scope:
       path: ""
       type: demos
     values:
-      layout: article
       column: Demo
 
 # Site info
