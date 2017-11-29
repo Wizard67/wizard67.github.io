@@ -1,6 +1,4 @@
 ---
-category: css
-title: 排版测试文件
 ---
 # typing.css  
 

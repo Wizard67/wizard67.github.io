@@ -1,6 +1,4 @@
 ---
-category: test
-title: test
 ---
 # note Article
 

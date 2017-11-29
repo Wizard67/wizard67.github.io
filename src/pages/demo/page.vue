@@ -9,7 +9,7 @@
 import GetContent from '../mixin'
 
 export default {
-    path: '/demo/:title',
+    path: '/demo/:pre/:title',
     name: 'demo',
     mixins: [ GetContent('demo') ],
     data() {

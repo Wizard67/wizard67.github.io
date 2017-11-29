@@ -42,7 +42,7 @@
                     <ul class="nav">
                         <template v-for="(i1, k1) in i.items">
                             <li :class="isTag" :key="k1">
-                                <router-link :to="{name:index.toLowerCase(), params: { title: i1['title'] }}">{{i1['title']}}</router-link>
+                                <router-link :to="{name: index.toLowerCase(), params: { pre: i['category'], title: i1['title'] }}">{{i1['title']}}</router-link>
                             </li>
                         </template>
                     </ul>

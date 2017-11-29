@@ -19,7 +19,7 @@ const actions = {
 
         commit('setContent', '')
 
-        ajax.get(`./articles/${route.params.title}.html`)
+        ajax.get(`./articles/${route.params.pre}-${route.params.title}.html`)
             .then((res) => {
                 commit('setContent', res.data)
             })

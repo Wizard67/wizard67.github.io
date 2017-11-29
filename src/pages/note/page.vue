@@ -9,7 +9,7 @@
 import GetContent from '../mixin'
 
 export default {
-    path: '/note/:title',
+    path: '/note/:pre/:title',
     name: 'note',
     mixins: [ GetContent('note') ],
     data() {
