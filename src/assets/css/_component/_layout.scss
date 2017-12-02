@@ -2,22 +2,73 @@
 
 #app {
   display: flex;
-  height: inherit;
+  width: 100%;
+  min-height: 100vh;
   
-  background-color: #f2f2f2;
+  background-color: $color-background;
   
   aside {
+    position: fixed;
     @include _flex( start none );
   }
   
   main {
-    width: 100%;
-    padding: 0 50px;
-
-    overflow: auto;
+    max-width: 1000px;
+    width: 55%;
+    min-width: 800px;
+    margin: 0 auto;
   }
 }
 
-.nav-wrap {
-  padding: 30px 20px;
-}
+@include _media( lg ) {
+  html {
+    font-size: 16px;
+  }
+  #app {
+    main {
+      max-width: 799px;
+      width: 60%;
+      min-width: 700px;
+      margin: 0 auto;
+    }
+  }
+};
+@include _media( md ) {
+  html {
+    font-size: 15px;
+  }
+  #app {
+    main {
+      max-width: 699px;
+      width: 70%;
+      min-width: 550px;
+      margin: 0 auto;
+    }
+  }
+};
+@include _media( sm ) {
+  html {
+    font-size: 14px;
+  }
+  #app {
+    main {
+      max-width: 549px;
+      width: 75%;
+      min-width: 420px;
+      margin: 0 auto;
+    }
+  }
+};
+@include _media( xs ) {
+  html {
+    font-size: 12px;
+  }
+  #app {
+    main {
+      max-width: 419px;
+      width: 95%;
+      min-width: unset;
+      margin: 0 auto;
+    }
+  }
+};
