@@ -24,7 +24,7 @@
     @if( $value == center ){ justify-content: center; }
     @if( $value == end ){ justify-content: flex-end; }
     @if( $value == top ){ align-items: flex-start; }
-    @if( $value == hang ){ align-items: center; }
+    @if( $value == middle ){ align-items: center; }
     @if( $value == bottom ){ align-items: flex-end; }
     @if( $value == between ){ justify-content: space-between; }
     @if( $value == around ){ justify-content: space-around; }
