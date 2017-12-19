@@ -17,6 +17,9 @@
     opacity: 0
 }
 
+.slide-fade-move {
+	transition: transform 1s;
+}
 .slide-fade-enter-active {
     transition: all .3s ease;
 }
@@ -25,21 +28,20 @@
 }
 .slide-fade-enter,
 .slide-fade-leave-to {
-   transform: translateX(10px);
-   opacity: 0;
+	width: 0;
+   	transform: translateX(10px);
+   	opacity: 0;
+
 }
 
 .list-move {
-  transition: transform 1s;
-}
-.list-item {
-  display: inline-block;
-  margin-right: 10px;
+  	transition: transform 1s;
 }
 .list-enter-active, .list-leave-active {
-  transition: all 1s;
+  	transition: all 1s;
 }
 .list-enter, .list-leave-to {
-  opacity: 0;
-  transform: translateY(30px);
+ 	opacity: 0;
+  	height: 0;
+  	transform: translateY(30px);
 }
