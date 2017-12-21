@@ -1,7 +1,11 @@
 <template>
     <header :class="type" class="shadow-on">
         <div class="header-main">
-            {{title}}
+            <div class="header-main__avater"></div>
+            <div class="header-main__title">
+                {{title}}
+            </div>
+            <div class="header-main__tool"></div>
         </div>
     </header>
 </template>
