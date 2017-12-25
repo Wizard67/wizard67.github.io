@@ -1,13 +1,13 @@
 * {
-    outline: 1px red solid;
+    // outline: 1px red solid;
 }
 
 
 
 .author {
     &__avatar {
-        width: 80px;
-        height: 80px;
+        width: 4.5rem;
+        height: 4.5rem;
         border-radius: 50%;
         box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),
                     0 1px 10px 0 rgba(0,0,0,.12),
@@ -18,7 +18,7 @@
 }
 
 .nav-wrap {
-    padding: 30px 20px;
+    padding: 1.76rem 1.17rem;
 }
 
 .nav {
@@ -34,8 +34,8 @@
 }
 
 .category {
-    width: 280px;
-    padding: 30px 20px;
+    width: 16.47rem;
+    padding: 1.76rem 1.17rem;
 
     overflow: auto;
 
