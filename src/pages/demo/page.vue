@@ -1,8 +1,5 @@
 <template>
-    <main>
-        <article class="type -demo" v-html="content">
-        </article>
-    </main>
+    <article class="content -demo" v-html="content"></article>
 </template>
 
 <script>

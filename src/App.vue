@@ -2,7 +2,9 @@
     <div id="app">
         <side-bar :author="author" :nav="nav"/>
         <header-bar/>
-        <router-view/>
+        <main>
+            <router-view/>
+        </main>
     </div>
 </template>
 
