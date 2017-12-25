@@ -2,8 +2,6 @@
     // outline: 1px red solid;
 }
 
-
-
 .author {
     &__avatar {
         width: 4.5rem;
@@ -46,11 +44,63 @@
     }
 }
 
-.type {
-    width: 100%;
-}
-
 .header-main {
     @include _flex( star );
+    max-width: 1000px;
+    width: 55%;
+    min-width: 800px;
+    margin: 3rem auto;
+
     pointer-events: auto;
+
+    &__avater {
+        width: 2rem;
+        height: 2rem;
+
+        margin-right: .5rem;
+        border-radius: 50%;
+        box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),
+                    0 1px 10px 0 rgba(0,0,0,.12),
+                    0 2px 4px -1px rgba(0,0,0,.3);
+        
+        cursor: pointer;
+    }
+
+    @extend %CONTENT-WIDTH;
+}
+
+.content {
+    margin: 3rem auto;
+    width: 100vw;
+
+    &.-article {
+        max-width: 1000px;
+        width: 55%;
+        min-width: 800px;
+
+        @extend %CONTENT-WIDTH;
+    }
+}
+
+%CONTENT-WIDTH {
+    @include _media( lg ) {
+        max-width: 799px;
+        width: 60%;
+        min-width: 700px;
+    };
+    @include _media( md ) {
+        max-width: 699px;
+        width: 70%;
+        min-width: 550px;
+    };
+    @include _media( sm ) {
+        max-width: 549px;
+        width: 75%;
+        min-width: 420px;
+    };
+    @include _media( xs ) {
+        max-width: 419px;
+        width: 95%;
+        min-width: unset;
+    };
 }
