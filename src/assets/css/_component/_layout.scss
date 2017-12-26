@@ -7,10 +7,12 @@
   
     background-color: $color-background;
 
-    aside {
-        position: fixed;
+    nav {
+        position: absolute;
         @include _flex( start none );
 
+        top: 3rem;
+        background-color: white;
     }
 
     header {
@@ -35,6 +37,10 @@
     main {
         @include _flex( star );
         width: 100vw;
+        
+        &.-filter {
+            filter: blur(3px);
+        }
     }
 
 }

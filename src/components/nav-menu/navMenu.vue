@@ -1,21 +1,20 @@
 <template>
-    <aside>
+    <nav>
 
         <div class="nav-wrap">
             <!-- author -->
-            <div class="author">
+            <!-- <div class="author"> -->
                 <!-- avatar -->
-                <img class="author__avatar" alt="avatar" draggable="false"
+                <!-- <img class="author__avatar" alt="avatar" draggable="false"
                      :src="author.avatar" @click = 'toggleCategory' />
                 <div class="author__links">
                 <template v-for="(i, k) in author.links">
-                    <!-- icon -->
                     <a class="icon" :key="k">
                         <i :class="`fa fa-${i.name}`" aria-hidden="true"></i>
                     </a>
                 </template>
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> -->
 
             <!-- nav -->
             <ul class="nav">
@@ -29,7 +28,7 @@
 
         <!-- category -->
         <transition name="slide-fade" appear>
-        <transition-group name="list" tag="div" class="category" v-if="isCategory" appear>
+        <transition-group name="list" tag="div" class="category">
             <template v-for="(i, k) in categorys">
             <section class="category__item" :key="k + i.category">
                 <p class="category__title">
@@ -51,26 +50,22 @@
         </transition-group>
         </transition>
 
-    </aside>
+    </nav>
 </template>
 
 <script>
 export default {
-    name: 'sideBar',
+    name: 'navMenu',
     props: [
         'author',
         'nav'
     ],
     data() {
         return {
-            index: this.nav[0].column,
-            isCategory: true
+            index: this.nav[0].column
         }
     },
     methods: {
-        toggleCategory() {
-            this.isCategory = !this.isCategory
-        },
         getIndex(index){
             this.isCategory = true
             this.index = index
