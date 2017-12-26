@@ -1,8 +1,7 @@
 <template>
     <div id="app">
-        <side-bar :author="author" :nav="nav"/>
         <header-bar/>
-        <main>
+        <main :class="{'-focus': isFocus}">
             <router-view/>
         </main>
     </div>
@@ -10,30 +9,16 @@
 
 <script>
 import headerBar from '@/components/header-bar'
-import sideBar from '@/components/side-bar'
 
 export default {
     name: 'app',
-    data() {
-        return {}
-    },
-    methods: {
-
-    },
     computed: {
-        author() {
-            return this.$store.state.author
-        },
-        nav() {
-            return this.$store.state.nav
+        isFocus() {
+            return this.$store.state.isFocus
         }
     },
-    created() {
-        this.$store.dispatch('getNav')
-    },
     components: {
-        headerBar,
-        sideBar
+        headerBar
     }
 }
 </script>

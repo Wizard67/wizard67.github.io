@@ -1,6 +1,7 @@
 import ajax from '@/configs/axios'
 
 const state = {
+    isFocus: false,
     author: {
         avatar: '/static/images/avatar.jpg',
         links: [
@@ -33,6 +34,9 @@ const getters = {
 }
 
 const mutations = {
+    toggleFocus(state) {
+        state.isFocus = !state.isFocus
+    },
     setNav(state, value) {
         state.nav = value
     }

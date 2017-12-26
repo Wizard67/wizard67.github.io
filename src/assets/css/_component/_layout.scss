@@ -12,7 +12,6 @@
         @include _flex( start none );
 
         top: 3rem;
-        background-color: white;
     }
 
     header {
@@ -37,9 +36,17 @@
     main {
         @include _flex( star );
         width: 100vw;
+        transition: filter .2s ease-in;
+        will-change: filter;
         
-        &.-filter {
-            filter: blur(3px);
+        &.-focus {
+            filter: blur(12px);
+            pointer-events: none;
+
+            ::selection {
+                color: inherit;
+                background-color: transparent;
+            }
         }
     }
 
