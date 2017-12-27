@@ -49,13 +49,13 @@
     max-width: 1000px;
     width: 55%;
     min-width: 800px;
-    margin: 3rem auto;
+    margin: 0 auto;
 
     pointer-events: auto;
 
     &__avater {
-        width: 2rem;
-        height: 2rem;
+        width: 3rem;
+        height: 3rem;
 
         margin-right: .5rem;
         border-radius: 50%;
@@ -70,7 +70,7 @@
 }
 
 .content {
-    margin: 3rem auto;
+    margin: 0 auto;
     width: 100vw;
 
     &.-article {
