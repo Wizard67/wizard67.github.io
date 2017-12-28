@@ -1,13 +1,11 @@
 <template>
-    <header :class="type" class="shadow-on">
+    <header :class="type">
         <div class="header-main">
             <img class="header-main__avater" alt="avatar" draggable="false"
-                 @click="toggleCategory" :src="author.avatar"/>
-            <nav-menu :author="author" :nav="nav" v-if="isCategory"/>
-            <div class="header-main__title">
-                {{title}}
-            </div>
+                 @click="toggleNav" :src="author.avatar"/>
+            <div class="header-main__title">{{title}}</div>
             <div class="header-main__tool"></div>
+            <nav-menu v-if="isShowNav" :author="author" :nav="nav"/>
         </div>
     </header>
 </template>
@@ -17,6 +15,7 @@ import Headroom from './mixin'
 import navMenu from '@/components/nav-menu'
 
 export default {
+    name: 'headerBar',
     mixins: [ Headroom ],
     data() {
         return {
@@ -33,13 +32,16 @@ export default {
         nav() {
             return this.$store.state.nav
         },
-        isCategory() {
+        isShowNav() {
             return this.$store.state.isFocus
         }
     },
     methods: {
-        toggleCategory() {
-            this.$store.commit('toggleFocus')
+        toggleNav() {
+            return this.isShowNav ? false : this.$store.commit('toggleFocus')
+        },
+        addEvet(){
+            console.log('nihao')
         }
     },
     components: {

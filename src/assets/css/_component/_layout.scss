@@ -21,10 +21,9 @@
         height: 4rem;
 
         z-index: 900;
-        pointer-events: none;
         transition: transform .25s ease-in-out;
         will-change: transform;
-
+        
         &.-show {
             transform: translateY(0);
         }

@@ -1,21 +1,6 @@
 <template>
     <nav>
-
         <div class="nav-wrap">
-            <!-- author -->
-            <!-- <div class="author"> -->
-                <!-- avatar -->
-                <!-- <img class="author__avatar" alt="avatar" draggable="false"
-                     :src="author.avatar" @click = 'toggleCategory' />
-                <div class="author__links">
-                <template v-for="(i, k) in author.links">
-                    <a class="icon" :key="k">
-                        <i :class="`fa fa-${i.name}`" aria-hidden="true"></i>
-                    </a>
-                </template>
-                </div> -->
-            <!-- </div> -->
-
             <!-- nav -->
             <ul class="nav">
             <template v-for="(i, k) in nav">
@@ -49,7 +34,6 @@
 
         </transition-group>
         </transition>
-
     </nav>
 </template>
 
@@ -69,6 +53,11 @@ export default {
         getIndex(index){
             this.isCategory = true
             this.index = index
+        },
+        handleClickOutside(e) {
+            if ( !this.$el.contains(e.target) ) {
+                this.$store.commit('toggleFocus')
+            }
         }
     },
     computed: {
@@ -78,6 +67,16 @@ export default {
         categorys() {
             return this.nav.filter(item => item.column === this.index)[0].categorys
         }
+    },
+    mounted() {
+        ['click', 'touchstart'].forEach( event =>
+            document.addEventListener(event, this.handleClickOutside)
+        )
+    },
+    destroyed() {
+        ['click', 'touchstart'].forEach( event =>
+            document.removeEventListener('click', this.handleClickOutside)
+        )
     }
 }
 </script>
