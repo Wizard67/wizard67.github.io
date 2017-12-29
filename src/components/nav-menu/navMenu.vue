@@ -1,15 +1,13 @@
 <template>
     <nav>
-        <div class="nav-wrap">
-            <!-- nav -->
-            <ul class="nav">
-            <template v-for="(i, k) in nav">
-                <li class="nav__item" :key="k" @click="getIndex(i.column)">
-                    <a href="#">{{i.column}}</a>
-                </li>
-            </template>
-            </ul>
-        </div>
+        <!-- nav -->
+        <ul class="nav">
+        <template v-for="(i, k) in nav">
+            <li class="nav__item" :key="k" @click="getIndex(i.column)">
+                {{i.column}}
+            </li>
+        </template>
+        </ul>
 
         <!-- category -->
         <transition name="slide-fade" appear>
@@ -69,13 +67,13 @@ export default {
         }
     },
     mounted() {
-        ['click', 'touchstart'].forEach( event =>
+        ['click','touchstart'].forEach( event =>
             document.addEventListener(event, this.handleClickOutside)
         )
     },
     destroyed() {
-        ['click', 'touchstart'].forEach( event =>
-            document.removeEventListener('click', this.handleClickOutside)
+        ['click','touchstart'].forEach( event =>{
+            document.removeEventListener(event, this.handleClickOutside)}
         )
     }
 }
