@@ -17,6 +17,8 @@ const mutations = {
 const actions = {
     getContent({dispatch, commit, state}, route) {
 
+        commit('setTitle', route.params.title, { root: true })
+
         commit('setContent', '')
 
         ajax.get(`./articles/${route.params.pre}-${route.params.title}.html`)

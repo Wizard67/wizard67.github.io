@@ -1,27 +1,22 @@
 <template>
-    <header :class="type">
-        <div class="header-main">
-            <img class="header-main__avater" alt="avatar" draggable="false"
-                 @click="toggleNav" :src="author.avatar"/>
-            <div class="header-main__title">{{title}}</div>
-            <div class="header-main__tool"></div>
-            <nav-menu v-if="isShowNav" :author="author" :nav="nav"/>
+    <header>
+        <div class="header-container">
+            <div class="header-container__nav">
+                <img class="header-container__avater" alt="avatar" draggable="false" @click="toggleNav" :src="author.avatar"/>
+                <nav-menu v-if="isShowNav" :author="author" :nav="nav"/>
+            </div>
+            <div class="header-container__title">{{title}}</div>
         </div>
     </header>
 </template>
 
 <script>
-import Headroom from './mixin'
+import Headroom from './headroom'
 import navMenu from '@/components/nav-menu'
 
 export default {
     name: 'headerBar',
     mixins: [ Headroom ],
-    data() {
-        return {
-            title: '文章标题'
-        }
-    },
     created() {
         this.$store.dispatch('getNav')
     },
@@ -32,6 +27,9 @@ export default {
         nav() {
             return this.$store.state.nav
         },
+        title() {
+            return this.$store.state.title
+        },
         isShowNav() {
             return this.$store.state.isFocus
         }
@@ -39,9 +37,6 @@ export default {
     methods: {
         toggleNav() {
             return this.isShowNav ? false : this.$store.commit('toggleFocus')
-        },
-        addEvet(){
-            console.log('nihao')
         }
     },
     components: {

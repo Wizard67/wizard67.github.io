@@ -26,7 +26,8 @@ const state = {
                 }
             ]
         }
-    ]
+    ],
+    title: 'Title'
 }
 
 const getters = {
@@ -39,6 +40,9 @@ const mutations = {
     },
     setNav(state, value) {
         state.nav = value
+    },
+    setTitle(state, value) {
+        state.title = value
     }
 }
 

@@ -12,6 +12,7 @@
         @include _flex( start none );
 
         top: 4rem;
+        left: 0;
     }
 
     header {
@@ -24,9 +25,6 @@
         transition: transform .25s ease-in-out;
         will-change: transform;
         
-        &.-show {
-            transform: translateY(0);
-        }
         &.-hidden {
             transform: translateY(-100%);
         }
