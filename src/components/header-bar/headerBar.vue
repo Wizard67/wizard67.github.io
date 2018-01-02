@@ -1,11 +1,9 @@
 <template>
     <header>
         <div class="header-container">
-            <div class="header-container__nav">
-                <img class="header-container__avater" alt="avatar" draggable="false" @click="toggleNav" :src="author.avatar"/>
-                <nav-menu v-if="isShowNav" :author="author" :nav="nav"/>
-            </div>
+            <img class="header-container__avater" alt="avatar" draggable="false" @click="toggleNav" :src="author.avatar"/>
             <div class="header-container__title">{{title}}</div>
+            <nav-menu v-if="isShowNav" :author="author" :nav="nav"/>
         </div>
     </header>
 </template>
