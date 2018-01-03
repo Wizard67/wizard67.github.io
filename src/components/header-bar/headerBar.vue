@@ -3,8 +3,8 @@
         <div class="header-container">
             <img class="header-container__avater" alt="avatar" draggable="false" @click="toggleNav" :src="author.avatar"/>
             <div class="header-container__title">{{title}}</div>
-            <nav-menu v-if="isShowNav" :author="author" :nav="nav"/>
         </div>
+        <nav-menu v-if="isShowNav" :author="author" :nav="nav"/>
     </header>
 </template>
 
