@@ -7,16 +7,8 @@
   
     background-color: $color-background;
 
-    nav {
-        position: absolute;
-        @include _flex( start none );
-
-        top: 4rem;
-        left: 0;
-    }
-
     header {
-        @include _flex( top middle );
+        @include _flex( top column );
         position: fixed;
         width: 100vw;
         height: 4rem;
@@ -36,7 +28,7 @@
         margin: 4rem 0;
         transition: filter .2s ease-in;
         will-change: filter;
-        
+
         &.-focus {
             filter: blur(12px);
             pointer-events: none;
