@@ -3,8 +3,8 @@
         <!-- menu -->
         <ul class="nav-bar__menu">
         <template v-for="(i, k) in nav">
-            <li class="nav-bar__item" :key="k" @click="getIndex(i.column)">
-                {{i.column}}
+            <li class="nav-bar__item" :key="k">
+                <a href="#" @click="getIndex(i.column)">{{i.column}}</a>
             </li>
         </template>
         </ul>
@@ -32,6 +32,9 @@
 </template>
 
 <script>
+import Hammer from 'hammerjs'
+const hammer = new Hammer(document)
+
 export default {
     name: 'navMenu',
     props: [
@@ -51,9 +54,7 @@ export default {
             if ( !this.$el.contains(e.target) ) {
                 this.$store.commit('toggleFocus')
             } else {
-                if ( e.target.nodeName !== 'LI' && e.target.nodeName !== 'A') {
-                    this.$store.commit('toggleFocus')
-                }
+                e.target.nodeName !== 'A' && this.$store.commit('toggleFocus')
             }
         }
     },
@@ -63,14 +64,10 @@ export default {
         }
     },
     mounted() {
-        ['click','touchend'].forEach( event =>
-            document.addEventListener(event, this.handleClickOutside)
-        )
+        hammer.on('tap', this.handleClickOutside)
     },
     destroyed() {
-        ['click','touchend'].forEach( event =>{
-            document.removeEventListener(event, this.handleClickOutside)}
-        )
+        hammer.off('tap', this.handleClickOutside)
     }
 }
 </script>
