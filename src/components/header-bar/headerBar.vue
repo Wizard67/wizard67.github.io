@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         toggleNav() {
-            return this.isShowNav ? false : this.$store.commit('toggleFocus')
+            this.$store.commit('toggleFocus')
         }
     },
     components: {

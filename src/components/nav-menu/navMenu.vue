@@ -52,7 +52,7 @@ export default {
         },
         handleClickOutside(e) {
             if ( !this.$el.contains(e.target) ) {
-                this.$store.commit('toggleFocus')
+                e.target.alt !== 'avatar' && this.$store.commit('toggleFocus')
             } else {
                 e.target.nodeName !== 'A' && this.$store.commit('toggleFocus')
             }
