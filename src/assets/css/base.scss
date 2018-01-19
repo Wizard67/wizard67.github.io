@@ -8,3 +8,9 @@
 
 @import "_component/layout";
 @import "_component/component";
+
+// pulgin
+$namespace: '.-article';
+$color-main:  $font-color-default;
+
+@import "~typing.css";
