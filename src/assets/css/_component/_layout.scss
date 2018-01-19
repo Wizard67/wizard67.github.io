@@ -26,11 +26,11 @@
         @include _flex( star );
         width: 100vw;
         margin: 4rem 0;
-        transition: filter .2s ease-in;
+        transition: filter .15s ease-in;
         will-change: filter;
 
         &.-focus {
-            filter: blur(12px);
+            filter: blur(4px);
             pointer-events: none;
 
             ::selection {
