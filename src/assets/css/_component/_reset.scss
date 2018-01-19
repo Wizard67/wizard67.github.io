@@ -11,24 +11,9 @@
  *  [1] 防止 IOS 翻转屏幕时放大文字
  */
 
-@font-face {
-  font-family: "Emphasis";
-
-  src: local("Arial");
-  unicode-range: U+2022, U+25CF;
-}
-
-@font-face {
-  font-family: "Biaodian";
-
-  src: local("PingFang SC"), local("Hiragino Sans GB"), local("Microsoft YaHei");
-  unicode-range: U+3002, U+FF0C, U+3001, U+FF1A, U+FF1B, U+FF01, U+FF1F, U+300C, U+300D, U+300E, U+300F U+201C, U+2019, U+2018, U+2019 U+FF08, U+FF09, U+2E3A, U+2014 U+3010, U+3011, U+3016, U+3017, U+3014, U+3015, U+FF3B, U+FF3D, U+FF5B, U+FF5D, U+2026, U+2013, U+FF5E, U+007E, U+00B7, U+FE4F, U+300A, U+300B, U+3008, U+3009, U+FF3F, U+002F, U+FF0F;
-}
-
 html {
   font-size: 17px;
-  font-family: "Emphasis", "Biaodian",
-               -apple-system, BlinkMacSystemFont,
+  font-family: -apple-system, BlinkMacSystemFont,
                "Helvetica Neue", "Segoe UI", "Roboto",
                "PingFang SC", "Hiragino Sans GB",
                "Microsoft YaHei Light", "Microsoft YaHei",
