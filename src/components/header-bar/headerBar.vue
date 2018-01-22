@@ -2,7 +2,7 @@
     <header>
         <div class="header-container">
             <img class="header-container__avater" alt="avatar" draggable="false" @click="toggleNav" :src="author.avatar"/>
-            <div class="header-container__title">{{title}}</div>
+            <div class="header-container__title" v-if="isShowNav">{{title}}</div>
         </div>
         <nav-menu v-if="isShowNav" :author="author" :nav="nav"/>
     </header>
