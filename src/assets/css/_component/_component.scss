@@ -105,33 +105,48 @@
 
     &.-article {
         @extend %CONTENT-WIDTH;
+        background-color: white;
+
+        @include _media( xl ) {
+            padding: 100px 120px 180px 120px;
+        };
+        @include _media( lg ) {
+            padding: 100px 90px 170px 90px;
+        };
+        @include _media( md ) {
+            padding: 100px 80px 160px 80px;
+        };
+        @include _media( sm ) {
+            padding: 10vw 8vw 12vw 8vw;
+        };
+        @include _media( xs ) {
+            padding: 9vw 7vw 11vw 7vw;
+        };
     }
 }
 
 %CONTENT-WIDTH {
     @include _media( xl ) {
-        max-width: 1000px;
-        width: 55%;
-        min-width: 800px;
+        width: 1000px;
     };
     @include _media( lg ) {
-        max-width: 799px;
-        width: 60%;
-        min-width: 700px;
+        max-width: 1000px;
+        width: 76%;
+        min-width: 820px;
     };
     @include _media( md ) {
-        max-width: 699px;
-        width: 70%;
-        min-width: 550px;
+        max-width: 819px;
+        width: 80%;
+        min-width: 580px;
     };
     @include _media( sm ) {
-        max-width: 549px;
+        max-width: 579px;
         width: 75%;
         min-width: 420px;
     };
     @include _media( xs ) {
         max-width: 419px;
-        width: 95%;
+        width: 100%;
         min-width: unset;
     };
 }
