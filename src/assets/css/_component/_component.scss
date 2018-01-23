@@ -105,6 +105,7 @@
 
     &.-article {
         @extend %CONTENT-WIDTH;
+        @extend %CONTENT-SHADOW;
         background-color: white;
 
         @include _media( xl ) {
@@ -122,6 +123,37 @@
         @include _media( xs ) {
             padding: 9vw 7vw 11vw 7vw;
         };
+    }
+
+    &.-note {
+        @include _flex( start wrap top );
+        @extend %CONTENT-WIDTH;
+        padding: 2.5rem 0;
+
+        dl {
+            width: 50%;
+            
+
+            dt {
+                line-height: 2;
+                padding: 10px;
+            }
+
+            dd {
+                margin: 0 10px;
+                padding: 0 10px;
+                background-color: white;
+                @extend %CONTENT-SHADOW;
+            }
+        }
+
+        h2 {
+            width: 100%;
+            margin: 20px 0 0 0;
+            padding: 0 10px;
+            line-height: 1;
+            font-weight: 400;
+        }
     }
 }
 
@@ -149,4 +181,8 @@
         width: 100%;
         min-width: unset;
     };
+}
+
+%CONTENT-SHADOW {
+    box-shadow: 0 6px 8px rgba(102,119,136,0.03), 0 1px 2px rgba(102,119,136,0.3);
 }
