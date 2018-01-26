@@ -1,5 +1,5 @@
 * {
-    // outline: 1px red solid;
+    outline: 1px red solid;
 }
 
 .nav-bar {
@@ -126,33 +126,42 @@
     }
 
     &.-note {
-        @include _flex( start wrap top );
+        // @include _flex( start wrap top );
+        column-count: 2;
+        column-gap: 10px;
         @extend %CONTENT-WIDTH;
         padding: 2.5rem 0;
 
         dl {
-            width: 50%;
+            width: 100%;
             
 
             dt {
                 line-height: 2;
-                padding: 10px;
             }
 
             dd {
-                margin: 0 10px;
-                padding: 0 10px;
+                margin: 0;
                 background-color: white;
                 @extend %CONTENT-SHADOW;
             }
         }
 
         h2 {
+            column-span: all;
             width: 100%;
             margin: 20px 0 0 0;
             padding: 0 10px;
             line-height: 1;
             font-weight: 400;
+        }
+
+        pre {
+            margin: 0;
+            line-height: 1.4;
+            code {
+                font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            }
         }
     }
 }
