@@ -129,10 +129,16 @@
         // @include _flex( start wrap top );
         @extend %CONTENT-WIDTH;
         padding: 2.5rem 0;
+        &::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
 
         dl {
+            float: left;
             width: 50%;
-            margin: 10px;
+            padding: 10px;
 
             dt {
                 line-height: 2;
@@ -147,7 +153,7 @@
         }
 
         h2 {
-            column-span: all;
+            float: left;
             width: 100%;
             margin: 20px 0 0 0;
             padding: 0 10px;
