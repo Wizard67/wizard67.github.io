@@ -142,10 +142,12 @@
 
             dt {
                 line-height: 2;
+                // padding: 0 20px;
             }
 
             dd {
                 margin: 0;
+                
                 background-color: white;
                 @extend %CONTENT-SHADOW;
                 overflow: auto;
@@ -163,10 +165,27 @@
 
         pre {
             margin: 0;
+            padding: 5px 10px;
             line-height: 1.4;
             code {
                 font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+                font-size: 0.8rem;
             }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            tr {
+                @include _flex( between );
+                padding: 5px 10px;
+            }
+        }
+
+        blockquote {
+            margin: 0;
+            padding: 5px 10px;
+            background-color: #f8f9fa;
         }
     }
 }
