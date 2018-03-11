@@ -1,0 +1,57 @@
+.nav-bar {
+    position: absolute;
+    @include _flex( start none );
+    height: 100vh;
+    top: 4rem;
+
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    @extend %CONTENT-WIDTH;
+
+    &__menu {
+        font-family: serif;
+        font-weight: 600;
+    }
+    &__item {
+        margin: 15px 0;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            text-shadow: 2px 2px 1px $font-shadow-default;
+            word-break: keep-all;
+        }
+    }
+
+    &__category {
+        width: 100%;
+        margin: 0 2rem;
+
+        overflow: auto;
+    }
+    &__type {
+        padding: 0 .25rem;
+        color: $font-color-light;
+
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+    &__title {
+        display: inline-block;
+        max-width: 20rem;
+        margin: .25rem .25rem;
+        padding: .1rem .5rem;
+        border: 1px grey solid;
+        border-radius: 10px;
+
+        overflow: hidden;
+        line-height: 1.6;
+        text-overflow: ellipsis;
+        
+        cursor: pointer;
+    }
+}

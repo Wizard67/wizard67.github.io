@@ -2,6 +2,7 @@
 
 #app {
     @include _flex( start column );
+    margin: 0 auto;
     width: 100%;
     min-height: 100vh;
   
@@ -23,7 +24,7 @@
     }
 
     main {
-        @include _flex( star );
+        @include _flex( center );
         width: 100vw;
         margin: 2.2rem 0;
         transition: filter .15s ease-in;

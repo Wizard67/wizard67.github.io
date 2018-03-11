@@ -7,7 +7,11 @@
 @import "_component/transition";
 
 @import "_component/layout";
-@import "_component/component";
+@import "_component/header-container";
+@import "_component/nav-bar";
+
+@import "_page/article";
+@import "_page/note";
 
 // pulgin
 @import "_plugins/rouge";
