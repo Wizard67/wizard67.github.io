@@ -8,7 +8,29 @@
     right: 0;
     margin: auto;
 
-    @extend %CONTENT-WIDTH;
+    @include _media( xl ) {
+        width: 1000px;
+    };
+    @include _media( lg ) {
+        max-width: 1000px;
+        width: 76%;
+        min-width: 820px;
+    };
+    @include _media( md ) {
+        max-width: 819px;
+        width: 80%;
+        min-width: 580px;
+    };
+    @include _media( sm ) {
+        max-width: 579px;
+        width: 75%;
+        min-width: 420px;
+    };
+    @include _media( xs ) {
+        max-width: 419px;
+        width: 100%;
+        min-width: unset;
+    };
 
     &__menu {
         font-family: serif;
