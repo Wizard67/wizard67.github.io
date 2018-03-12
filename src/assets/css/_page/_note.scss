@@ -71,6 +71,10 @@
         max-width: 819px;
         width: 80%;
         min-width: 580px;
+
+        dl {
+            width: 100%;
+        }
     };
     @include _media( sm ) {
         max-width: 579px;
