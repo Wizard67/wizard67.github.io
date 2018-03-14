@@ -25,9 +25,6 @@ export default {
         nav() {
             return this.$store.state.nav
         },
-        title() {
-            return this.$store.state.title
-        },
         isShowNav() {
             return this.$store.state.isFocus
         }

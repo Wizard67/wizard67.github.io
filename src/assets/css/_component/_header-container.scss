@@ -19,21 +19,6 @@
         cursor: pointer;
     }
 
-    &__title {
-        display: inline-block;
-        width: calc( 100% - 3rem );
-        margin: 0 .5rem;
-
-        overflow: hidden;
-        
-        font-family: serif;
-        font-size: 1.4rem;
-        font-weight: 600;
-        line-height: 3rem;
-        word-break: keep-all;
-        text-overflow: ellipsis;
-    }
-
     @include _media( xl ) {
         width: 1000px;
     };
