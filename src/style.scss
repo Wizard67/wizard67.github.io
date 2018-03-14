@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import '~@/assets/css/utils';
 
 #app {
     @include _flex( start column );

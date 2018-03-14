@@ -24,3 +24,4 @@ export default {
 </script>
 
 <style src="@/assets/css/base.scss" lang="scss"></style>
+<style src="./style.scss" lang="scss"></style>
