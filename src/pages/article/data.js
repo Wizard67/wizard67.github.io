@@ -30,7 +30,7 @@ const actions = {
 }
 
 export default {
-    namespace: 'article',
+    namespace: 'articles',
     namespaced: true,
     state,
     getters,

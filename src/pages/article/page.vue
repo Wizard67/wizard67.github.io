@@ -5,7 +5,7 @@
 <script>
 import GetContent from '../mixin'
 
-const namespace = 'article'
+const namespace = 'articles'
 
 export default {
     path: `/${namespace}/:pre/:title`,

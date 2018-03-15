@@ -6,7 +6,7 @@
 import GetContent from '../mixin'
 import Masonry from 'masonry-layout'
 
-const namespace = 'note'
+const namespace = 'notes'
 
 export default {
     path: `/${namespace}/:pre/:title`,

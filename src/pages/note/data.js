@@ -32,7 +32,7 @@ const actions = {
 }
 
 export default {
-    namespace: 'note',
+    namespace: 'notes',
     namespaced: true,
     state,
     getters,
