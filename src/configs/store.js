@@ -3,9 +3,9 @@ import Vuex from 'vuex'
 import { importAll } from './utils'
 
 /* global */
-import global from '@/data'
+import global from '@/store'
 
-const Pages = require.context('@/pages', true, /data\.js$/)
+const Pages = require.context('@/pages', true, /store\.js$/)
 const routeList = importAll(Pages, 'store')
 
 Vue.use( Vuex )
