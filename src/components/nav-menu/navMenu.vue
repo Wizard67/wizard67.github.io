@@ -4,7 +4,7 @@
         <ul class="nav-bar__menu">
         <template v-for="(i, k) in nav">
             <li class="nav-bar__item" :key="k">
-                <a href="#" @click="getIndex(i.column)">{{i.column}}</a>
+                <a :href="`#${i.column}`" @click="getIndex(i.column)">{{i.column}}</a>
             </li>
         </template>
         </ul>
