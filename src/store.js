@@ -39,7 +39,7 @@ const mutations = {
         state.isFocus = !state.isFocus
     },
     setNav(state, value) {
-        state.nav = value
+        state.nav = value ? state.nav : value
     },
     setTitle(state, value) {
         state.title = value
