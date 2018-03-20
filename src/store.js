@@ -39,7 +39,7 @@ const mutations = {
         state.isFocus = !state.isFocus
     },
     setNav(state, value) {
-        state.nav = value
+        state.nav = value.length ? value : null
     },
     setTitle(state, value) {
         state.title = value
@@ -49,7 +49,12 @@ const mutations = {
 const actions = {
     getNav({dispatch, commit, state}) {
         ajax.get('./api/nav.json')
-            .then((res) => commit('setNav', res.data))
+            .then(({data}) => {
+                data.code === 200 ? commit('setNav', data.data) : null
+            })
+            .catch((err) => {
+                console.log('网络错误')
+            })
     }
 }
 

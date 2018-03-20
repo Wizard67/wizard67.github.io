@@ -3,7 +3,7 @@
         <div class="header-container">
             <img class="header-container__avater" alt="avatar" draggable="false" @click="toggleNav" :src="author.avatar"/>
         </div>
-        <nav-menu v-if="isShowNav && nav.length" :author="author" :nav="nav"/>
+        <nav-menu v-if="isShowNav && nav" :author="author" :nav="nav"/>
     </header>
 </template>
 
