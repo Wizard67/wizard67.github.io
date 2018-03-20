@@ -3,67 +3,60 @@ permalink: /api/nav.json
 ---
 
 {% comment %}
-    输出格式：
-    [
+format: 
+{
+    "code": 200,
+    "message": "success",
+    "data": [
         {
-            "column": "column",
+            "column": <column>,
             "categorys": [{
-                "category": "category",
+                "category": <category>,
                 "items": [{
-                    "title": "title",
-                    "date": "date",
-                    "url": "url"
+                    "title": <title>,
+                    "date": <date>,
+                    "url": <url>
                 }]
             }]
         }
     ]
+}
+{% endcomment %}
 
-    {
-        "title": "{{page.title}}",
-        "date": "{{page.date}}",
-        "url": "{{page.url}}"
-    },
-{% endcomment %}
-{% comment %}
-    获取 url 中指定位置的字符：eg. css
-{{ "/articles/css-%E6%8E%92%E7%89%88%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6.html" | split: site.pathSplite | first | split: "/" | last }}
-{% endcomment %}
-{% comment %}
-    eg. 使用 capture 标记捕获遍历的字符串
-{% endcomment %}
 {% capture getColumns %}{% for page in site.documents %}{{ page.url | split: site.pathSplite | first | split: "/" | slice: 1 }},{% endfor %}{% endcapture %}
-
-{% comment %}
-    eg. 将捕获到的字符串分割为数组，处理左右空白符并移除末项，最后确保唯一值
-{% endcomment %}
 {% assign uniqColumns = getColumns | split: "," | compact | uniq | sort %}
+{
+    "code": 200,
+    "message": "success",
+    "data": [
+    {% for column in uniqColumns %}
+    {% capture getCategory %}{% for page in site.documents %}{% assign pageTag = page.url | split: site.pathSplite | first | split: "/" | slice: 1 %}{% capture pageTagString %}{{pageTag}}{% endcapture %}{% if pageTagString == column %}{{ page.url | split: site.pathSplite | first | split: "/" | last }},{% endif %}{% endfor %}{% endcapture %}
+    {% assign uniqCategory = getCategory | split: "," | compact | uniq | sort %}
 
-[{% for column in uniqColumns %}
-{% capture getCategory %}{% for page in site.documents %}{% assign pageTag = page.url | split: site.pathSplite | first | split: "/" | slice: 1 %}{% capture pageTagString %}{{pageTag}}{% endcapture %}{% if pageTagString == column %}{{ page.url | split: site.pathSplite | first | split: "/" | last }},{% endif %}{% endfor %}{% endcapture %}
-{% assign uniqCategory = getCategory | split: "," | compact | uniq | sort %}
-
-    {
-        "column": "{{column}}",
-        "categorys": [
-        {% for category in uniqCategory %}
         {
-            "category": "{{category}}",
-            "items": [
+            "column": "{{column}}",
+            "categorys": [
+            {% for category in uniqCategory %}
+            {
+                "category": "{{category}}",
+                "items": [
 
-                {% capture getItems %}{% for page in site.documents %}{% assign pageCategory = page.url | split: site.pathSplite | first | split: "/" | last %}{% assign pageTag = page.url | split: site.pathSplite | first | split: "/" | slice: 1 %}{% capture pageTagString %}{{pageTag}}{% endcapture %}{% if pageTagString == column and pageCategory == category %}
-                {
-                    "title": "{{page.path | split: site.pathSplite | last | split: "." | first }}",
-                    "date": "{{page.date}}",
-                    "url": "{{page.url}}"
-                }@{% endif %}{% endfor %}{% endcapture %}
-                {% assign uniqItems = getItems | split: "@" | compact | uniq | sort %}
+                    {% capture getItems %}{% for page in site.documents %}{% assign pageCategory = page.url | split: site.pathSplite | first | split: "/" | last %}{% assign pageTag = page.url | split: site.pathSplite | first | split: "/" | slice: 1 %}{% capture pageTagString %}{{pageTag}}{% endcapture %}{% if pageTagString == column and pageCategory == category %}
+                    {
+                        "title": "{{page.path | split: site.pathSplite | last | split: "." | first }}",
+                        "date": "{{page.date}}",
+                        "url": "{{page.url}}"
+                    }@{% endif %}{% endfor %}{% endcapture %}
+                    {% assign uniqItems = getItems | split: "@" | compact | uniq | sort %}
 
-                {% for item in uniqItems %}
-                    {{item}}{% if forloop.last == false %},{% endif %}
-                {% endfor %}
+                    {% for item in uniqItems %}
+                        {{item}}{% if forloop.last == false %},{% endif %}
+                    {% endfor %}
+                ]
+            }{% if forloop.last == false %},{% endif %}
+            {% endfor %}
             ]
         }{% if forloop.last == false %},{% endif %}
-        {% endfor %}
-        ]
-    }{% if forloop.last == false %},{% endif %}
-{% endfor %}]
+    {% endfor %}
+    ]
+}
