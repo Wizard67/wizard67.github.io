@@ -1,40 +1,20 @@
 <template>
-    <header>
-        <div class="header-container">
-            <img class="header-container__avater" alt="avatar" draggable="false" @click="toggleNav" :src="author.avatar"/>
-        </div>
-        <nav-menu v-if="isShowNav && nav" :author="author" :nav="nav"/>
+    <header class="header-container">
+        <img class="header-container__avater" alt="avatar" draggable="false" @click="click" :src="author.avatar"/>
     </header>
 </template>
 
 <script>
 import Headroom from './headroom'
-import navMenu from '@/components/nav-menu'
 
 export default {
     name: 'headerBar',
     mixins: [ Headroom ],
-    created() {
-        this.$store.dispatch('getNav')
-    },
-    computed: {
-        author() {
-            return this.$store.state.author
-        },
-        nav() {
-            return this.$store.state.nav
-        },
-        isShowNav() {
-            return this.$store.state.isFocus
-        }
-    },
+    props: [ 'author' ],
     methods: {
-        toggleNav() {
-            this.$store.commit('toggleFocus')
+        click() {
+            this.$emit('avatarClick')
         }
-    },
-    components: {
-        navMenu
     }
 }
 </script>
