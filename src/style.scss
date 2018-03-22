@@ -1,7 +1,7 @@
 @import '~@/assets/css/utils';
 
 #app {
-    @include _flex( start column );
+    @include _flex( center );
     margin: 0 auto;
     width: 100%;
     min-height: 100vh;
@@ -9,10 +9,9 @@
     background-color: $color-background;
 
     header {
-        @include _flex( top column );
         position: fixed;
-        width: 100vw;
         height: 4rem;
+        margin: 0 auto;
 
         z-index: 900;
         transition: transform .25s ease-in-out;
