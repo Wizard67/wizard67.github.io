@@ -1,0 +1,34 @@
+exclude:
+  - src
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - README.md
+  - node_modules
+  - vue.config.js
+  - public
+  - removeFiles.js
+  - dist
+
+# Markdown
+
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  parse_block_html: true
+
+# Path
+
+collections:
+  articles:
+    output: true
+  notes:
+    output: true
+
+# Site info
+
+pathSplite: "-" # a sign to split page url

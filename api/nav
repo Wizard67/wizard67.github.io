@@ -1,0 +1,62 @@
+---
+permalink: /api/nav.json
+---
+
+{% comment %}
+format: 
+{
+    "code": 200,
+    "message": "success",
+    "data": [
+        {
+            "column": <column>,
+            "categorys": [{
+                "category": <category>,
+                "items": [{
+                    "title": <title>,
+                    "date": <date>,
+                    "url": <url>
+                }]
+            }]
+        }
+    ]
+}
+{% endcomment %}
+
+{% capture getColumns %}{% for page in site.documents %}{{ page.url | split: site.pathSplite | first | split: "/" | slice: 1 }},{% endfor %}{% endcapture %}
+{% assign uniqColumns = getColumns | split: "," | compact | uniq | sort %}
+{
+    "code": 200,
+    "message": "success",
+    "data": [
+    {% for column in uniqColumns %}
+    {% capture getCategory %}{% for page in site.documents %}{% assign pageTag = page.url | split: site.pathSplite | first | split: "/" | slice: 1 %}{% capture pageTagString %}{{pageTag}}{% endcapture %}{% if pageTagString == column %}{{ page.url | split: site.pathSplite | first | split: "/" | last }},{% endif %}{% endfor %}{% endcapture %}
+    {% assign uniqCategory = getCategory | split: "," | compact | uniq | sort %}
+
+        {
+            "column": "{{column}}",
+            "categorys": [
+            {% for category in uniqCategory %}
+            {
+                "category": "{{category}}",
+                "items": [
+
+                    {% capture getItems %}{% for page in site.documents %}{% assign pageCategory = page.url | split: site.pathSplite | first | split: "/" | last %}{% assign pageTag = page.url | split: site.pathSplite | first | split: "/" | slice: 1 %}{% capture pageTagString %}{{pageTag}}{% endcapture %}{% if pageTagString == column and pageCategory == category %}
+                    {
+                        "title": "{{page.path | split: site.pathSplite | last | split: "." | first }}",
+                        "date": "{{page.date}}",
+                        "url": "{{page.url}}"
+                    }@{% endif %}{% endfor %}{% endcapture %}
+                    {% assign uniqItems = getItems | split: "@" | compact | uniq | sort %}
+
+                    {% for item in uniqItems %}
+                        {{item}}{% if forloop.last == false %},{% endif %}
+                    {% endfor %}
+                ]
+            }{% if forloop.last == false %},{% endif %}
+            {% endfor %}
+            ]
+        }{% if forloop.last == false %},{% endif %}
+    {% endfor %}
+    ]
+}
