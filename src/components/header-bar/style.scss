@@ -1,0 +1,47 @@
+@import "~@/assets/css/utils";
+
+.header-container {
+    position: relative;
+    @include _flex( star middle );
+
+    height: 4rem;
+    margin: 0 auto;
+
+    pointer-events: auto;
+
+    &__avater {
+        width: 3rem;
+        height: 3rem;
+
+        border-radius: 50%;
+        box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),
+                    0 1px 10px 0 rgba(0,0,0,.12),
+                    0 2px 4px -1px rgba(0,0,0,.3);
+
+        cursor: pointer;
+    }
+
+    @include _media( xl ) {
+        width: 1000px;
+    };
+    @include _media( lg ) {
+        max-width: 1000px;
+        width: 76%;
+        min-width: 820px;
+    };
+    @include _media( md ) {
+        max-width: 819px;
+        width: 80%;
+        min-width: 580px;
+    };
+    @include _media( sm ) {
+        max-width: 579px;
+        width: 75%;
+        min-width: 420px;
+    };
+    @include _media( xs ) {
+        max-width: 419px;
+        width: 100%;
+        min-width: unset;
+    };
+}

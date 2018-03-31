@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+$font-color-default: #5e6d82;
+$font-color-light: #aaaaaa;
+$font-shadow-default: #aaaaaa;
+
+$color-background: #eeeeee;
+$color-selection: #8492A6;
+
+$breakpoints: (
+  xs  : 544px,
+  sm  : 768px,
+  md  : 992px,
+  lg  : 1380px,
+  xl  : 1920px
+);
+
+$flexbox: column wrap start center end top middle bottom between around tight auto none full;

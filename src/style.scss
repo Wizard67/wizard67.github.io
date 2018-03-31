@@ -1,0 +1,64 @@
+@import '~@/assets/css/utils';
+
+#app {
+    @include _flex( center );
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100vh;
+  
+    background-color: $color-background;
+
+    header {
+        position: fixed;
+        height: 4rem;
+        margin: 0 auto;
+
+        z-index: 900;
+        transition: transform .25s ease-in-out;
+        will-change: transform;
+        
+        &.-hidden {
+            transform: translateY(-100%);
+        }
+    }
+
+    main {
+        @include _flex( center );
+        width: 100vw;
+        margin: 2.2rem 0;
+        transition: filter .15s ease-in;
+        will-change: filter;
+
+        &.-focus {
+            filter: blur(4px);
+            pointer-events: none;
+
+            ::selection {
+                color: inherit;
+                background-color: transparent;
+            }
+        }
+    }
+
+}
+
+@include _media( lg ) {
+    html {
+        font-size: 16px;
+    }
+};
+@include _media( md ) {
+    html {
+        font-size: 15px;
+    }
+};
+@include _media( sm ) {
+    html {
+        font-size: 14px;
+    }
+};
+@include _media( xs ) {
+    html {
+        font-size: 12px;
+    }
+};

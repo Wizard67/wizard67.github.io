@@ -34,7 +34,7 @@ _.difference(currentFiles, keepFiles).forEach((file)=>{
   fs.removeSync( path.join(__dirname, file) )
 
 })
-return
+
 /* 
  *  move files to root-path
  */

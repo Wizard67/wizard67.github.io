@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+/*
+ *  Viewport
+ */
+
+@viewport { width:device-width; }
+
+/*
+ *  Font
+ *  [1] 防止 IOS 翻转屏幕时放大文字
+ */
+
+html {
+  font-size: 17px;
+  font-family: -apple-system, BlinkMacSystemFont,
+               "Helvetica Neue", "Segoe UI", "Roboto",
+               "PingFang SC", "Hiragino Sans GB",
+               "Microsoft YaHei Light", "Microsoft YaHei",
+               "Noto Sans CJK",
+               "WenQuanYi Micro Hei",
+               sans-serif;
+  line-height: 2;
+  color: $font-color-default;
+
+  -webkit-text-size-adjust: 100%; // [1]
+}
+
+/*
+ *  Box
+ *  [1] 防止出现点击背景
+ */
+
+html {
+  box-sizing: border-box;
+  min-height: 100%;
+
+  -webkit-tap-highlight-color: transparent; // [1]
+}
+
+body {
+  min-height: inherit;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/*
+ *  Scrollbar
+ */
+
+::-webkit-scrollbar {width: 10px;height: 10px;transition: all .5s cubic-bezier(.35,0,.25,1);background-color: rgba(0,0,0,0);}
+::-webkit-scrollbar-button {display: none;}
+::-webkit-scrollbar-corner {background-color: transparent;}
+::-webkit-scrollbar-thumb {background-color: rgba(0,0,0,.15);transition: all .5s cubic-bezier(.35,0,.25,1);}
+
+/*
+ *  Selection
+ */
+
+::selection {
+  background-color: $color-selection;
+  color: white;
+}
+
+/*
+ *  fix 'jumping scrollbar'
+ *  http://www.zhangxinxu.com/wordpress/2015/01/css-page-scrollbar-toggle-center-no-jumping/
+ *  https://aykevl.nl/2014/09/fix-jumping-scrollbar
+ */
+html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+  overflow: hidden;
+}
+
+/*
+ *  Element
+ */
+
+ul {
+  list-style-type: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  border-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  background-color: transparent;
+
+  text-decoration: none;
+  -webkit-text-decoration-skip: objects;
+}

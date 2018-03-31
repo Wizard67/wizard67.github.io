@@ -1,30 +1,50 @@
 <template>
-  <div id="app">
-    <img src="/logo.png" alt="">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About!</router-link>
+    <div id="app">
+        <header-bar :author = 'author'
+            @avatarClick = 'toggleFocus' />
+        
+        <nav-menu v-if="isFocus"
+            :nav="nav"
+            @outsideClick = 'toggleFocus' >
+            <p slot="empty">暂无内容</p>
+        </nav-menu>
+
+        <main :class="{'-focus': isFocus}">
+            <router-view/>
+        </main>
     </div>
-    <router-view/>
-  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import headerBar from '@/components/header-bar'
+import navMenu from '@/components/nav-menu'
+
+export default {
+    name: 'app',
+    computed: {
+        author() {
+            return this.$store.state.author
+        },
+        nav() {
+            return this.$store.state.nav
+        },
+        isFocus() {
+            return this.$store.state.isFocus
+        },
+    },
+    methods: {
+        toggleFocus() {
+            this.$store.commit('toggleFocus')
+        },
+    },
+    created() {
+        this.$store.dispatch('getNav')
+    },
+    components: {
+        headerBar,
+        navMenu,
     }
-  }
 }
-</style>
+</script>
+
+<style src="./style.scss" lang="scss"></style>

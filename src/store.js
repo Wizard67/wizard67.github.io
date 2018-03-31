@@ -1,16 +1,67 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import ajax from '@/configs/axios'
 
-Vue.use(Vuex)
+const state = {
+    isFocus: false,
+    author: {
+        avatar: '/images/avatar.jpg',
+        links: [
+            {
+                name: 'github',
+                link: ''
+            }
+        ]
+    },
+    nav: [
+        {
+            "column": "Article",
+            "categorys": [
+                {
+                    "category": "category",
+                    "items": [
+                        {
+                            "title": "title",
+                            "url": "/"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    title: 'Title'
+}
 
-export default new Vuex.Store({
-  state: {
+const getters = {
 
-  },
-  mutations: {
+}
 
-  },
-  actions: {
+const mutations = {
+    toggleFocus(state) {
+        state.isFocus = !state.isFocus
+    },
+    setNav(state, value) {
+        state.nav = value.length ? value : null
+    },
+    setTitle(state, value) {
+        state.title = value
+    }
+}
 
-  }
-})
+const actions = {
+    getNav({dispatch, commit, state}) {
+        ajax.get('./api/nav.json')
+            .then(({data}) => {
+                console.log(data)
+                data.code === 200 ? commit('setNav', data.data) : null
+            })
+            .catch((err) => {
+                console.log('网络错误')
+            })
+    }
+}
+
+export default {
+    state,
+    getters,
+    actions,
+    mutations
+}

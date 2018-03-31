@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+@import "_config/variables";
+@import "_config/mixins";
+
+@import "_component/reset";
+
+// pulgin
+@import "_plugins/rouge";
+
+$namespace: '.-article';
+$color-main:  #23303e;
+@import "~typing.css";
