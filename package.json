@@ -7,9 +7,9 @@
     "build:vue": "vue-cli-service build",
     "serve:jekyll": "bundle exec jekyll build --watch",
     "build:jekyll": "bundle exec jekyll build",
-    "move": "node removeFiles",
+    "handle": "node handleFiles",
     "serve": "run-p serve:jekyll serve:vue",
-    "build": "run-s build:vue move build:jekyll"
+    "build": "run-s build:vue handle build:jekyll"
   },
   "dependencies": {
     "vue": "^2.5.13",

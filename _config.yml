@@ -1,16 +1,16 @@
 exclude:
+  - node_modules
+  - public
+  - dist
   - src
   - .gitignore
   - Gemfile
   - Gemfile.lock
-  - package.json
+  - handleFiles.js
   - package-lock.json
+  - package.json
   - README.md
-  - node_modules
   - vue.config.js
-  - public
-  - removeFiles.js
-  - dist
 
 # Markdown
 
