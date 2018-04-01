@@ -1,12 +1,10 @@
 const path = require("path");
 const fs = require("fs-extra")
 const _ = require('lodash')
-const filename = path.join(__dirname, "./dist")
+const YAML = require('yamljs')
 
 const keepFiles = [
   '.git',
-  '_articles',
-  '_notes',
   '_site',
   'api',
   'dist',
@@ -23,6 +21,17 @@ const keepFiles = [
   'README.md',
   'vue.config.js',
 ]
+
+const filename = path.join(__dirname, "./dist")
+
+/* 
+ *  add jekyll collections to keepFoles
+ */
+const collection = YAML.parse(fs.readFileSync('./_config.yml').toString())
+
+_.forEach(collection.collections, (value, key) => {
+  keepFiles.push(`_${key}`)
+})
 
 /* 
  * remove files that not keep

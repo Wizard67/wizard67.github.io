@@ -28,7 +28,8 @@
     "node-sass": "^4.7.2",
     "npm-run-all": "^4.1.2",
     "sass-loader": "^6.0.6",
-    "vue-template-compiler": "^2.5.13"
+    "vue-template-compiler": "^2.5.13",
+    "yamljs": "^0.3.0"
   },
   "babel": {
     "presets": [
