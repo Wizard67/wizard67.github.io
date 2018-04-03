@@ -9,6 +9,7 @@
     left: 0;
     right: 0;
     margin: auto;
+    z-index: 999;
 
     @include _media( xl ) {
         width: 1000px;
