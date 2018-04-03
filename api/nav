@@ -38,7 +38,7 @@ format:
             "categorys": [
             {% for category in uniqCategory %}
             {
-                "category": "{{category}}",
+                "category": "{{category | url_decode}}",
                 "items": [
 
                     {% capture getItems %}{% for page in site.documents %}{% assign pageCategory = page.url | split: site.pathSplite | first | split: "/" | last %}{% assign pageTag = page.url | split: site.pathSplite | first | split: "/" | slice: 1 %}{% capture pageTagString %}{{pageTag}}{% endcapture %}{% if pageTagString == column and pageCategory == category %}
