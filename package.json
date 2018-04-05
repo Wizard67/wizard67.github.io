@@ -7,9 +7,10 @@
     "build:vue": "vue-cli-service build",
     "serve:jekyll": "bundle exec jekyll build --watch",
     "build:jekyll": "bundle exec jekyll build",
-    "handle": "node handleFiles",
-    "serve": "run-p serve:jekyll serve:vue",
-    "build": "run-s build:vue handle build:jekyll"
+    "files:clean": "node files-clean",
+    "files:build": "node files-build",
+    "serve": "run-p files:clean serve:jekyll serve:vue",
+    "build": "run-s build:vue files:clean files:build build:jekyll"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -45,5 +46,24 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "keepFiles": [
+    ".git",
+    "_site",
+    "api",
+    "dist",
+    "node_modules",
+    "public",
+    "src",
+    "_config.yml",
+    ".gitignore",
+    "Gemfile",
+    "Gemfile.lock",
+    "files-clean.js",
+    "files-build.js",
+    "package-lock.json",
+    "package.json",
+    "README.md",
+    "vue.config.js"
   ]
 }
