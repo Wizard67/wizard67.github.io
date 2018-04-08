@@ -166,8 +166,10 @@
 
 ## 过滤器
 
-abs
-: 返回一个数字的绝对值
+数值处理
+: ### abs
+
+  返回一个数字的绝对值
 
   ```liquid
   {%- raw -%}
@@ -178,10 +180,104 @@ abs
 
   > 17   
   > 19.86
+
+: ### divided_by
+
+  将两个数相除，结果向下取整
+
+  ```liquid
+  {%- raw -%}
+  {{ 16 | divided_by: 4 }}
+  {{ 5 | divided_by: 3 }}
+  {% endraw %}
+  ```
+  > 4   
+  > 1
+
+: ### floor
+
+  舍弃数值小数部分
+
+  ```liquid
+  {%- raw -%}
+  {{ 1.2 | floor }}
+  {{ "3.5" | floor }}
+  {% endraw %}
+  ```
+  > 1   
+  > 3
+
+: ### minus
+
+  从一个数中减去另一个数
+
+  ```liquid
+  {%- raw -%}
+  {{ 4 | minus: 2 }}
+  {{ 183.357 | minus: 12 }}
+  {% endraw %}
+  ```
+  > 2  
+  > 171.357
+
+: ### modulo
+
+  返回除法运算的余数
+
+  ```liquid
+  {%- raw -%}
+  {{ 3 | modulo: 2 }}
+  {{ 183.357 | modulo: 12 }}
+  {% endraw %}
+  ```
+  > 1  
+  > 3.357
+
+: ### plus
+
+  两个数相加
+
+  ```liquid
+  {%- raw -%}
+  {{ 4 | plus: 2 }}
+  {{ 183.357 | plus: 12 }}
+  {% endraw %}
+  ```
+  > 6   
+  > 195.357
+
+: ### round
+
+  将浮点数舍入到最近的整数或指定精度
+
+  ```liquid
+  {%- raw -%}
+  {{ 1.2 | round }}
+  {{ 183.357 | round: 2 }}
+  {% endraw %}
+  ```
+  > 1  
+  > 183.36
+
+: ### times
+
+  将一个数乘以另一个数
+
+  ```liquid
+  {%- raw -%}
+  {{ 3 | times: 2 }}
+  {{ 183.357 | times: 12 }}
+  {% endraw %}
+  ```
+  > 6  
+  > 2200.284
+
 ^
 
-append
-: 将两个字符串拼接起来并返回拼接之后的值
+字符串处理
+: ### append
+
+  将两个字符串拼接起来并返回拼接之后的值
 
   ```liquid
   {%- raw -%}
@@ -190,10 +286,10 @@ append
   ```
 
   > hello world!
-^
 
-capitalize
-: 将字符串首字母转为大写
+: ### capitalize
+
+  将字符串首字母转为大写
 
   ```liquid
   {%- raw -%}
@@ -201,10 +297,10 @@ capitalize
   {% endraw %}
   ```
   > Hello world!
-^
 
-ceil
-: 将字符串首字母转为大写
+: ceil
+
+  将字符串首字母转为大写
 
   ```liquid
   {%- raw -%}
@@ -216,10 +312,10 @@ ceil
   > 2  
   > 184  
   > 4
-^
 
-capitalize
-: 将字符串首字母转为大写
+: ### capitalize
+
+  将字符串首字母转为大写
 
   ```liquid
   {%- raw -%}
@@ -227,10 +323,248 @@ capitalize
   {% endraw %}
   ```
   > Hello world!
+
+: ### downcase
+
+  将字符串换为小写形式
+
+  ```liquid
+  {%- raw -%}
+  {{ "HEllo WORld" | downcase }}
+  {% endraw %}
+  ```
+  > hello world
+
+: ### escape
+
+  对字符串字符进行转译
+
+  ```liquid
+  {%- raw -%}
+  {{ "hello world!!" | escape }}
+  {% endraw %}
+  ```
+  > hello%20world!!
+
+: ### escape_once
+
+  转义字符串并且不修改已经转义过的实体
+
+  ```liquid
+  {%- raw -%}
+  {{ "hello%20world !!" | escape }}
+  {% endraw %}
+  ```
+  > hello%20world%20!!
+: ### strip
+
+  删除字符串左右两侧的所有空白符号
+
+  ```liquid
+  {%- raw -%}
+  {{ "      hello world!     " | lstrip }}
+  {% endraw %}
+  ```
+  > hello world!
+
+: ### strip_html
+
+  从字符串中删除所有 HTML 标签
+
+  ```liquid
+  {%- raw -%}
+  {{ "<h1>hello world!</h1>" | strip_html }}
+  {% endraw %}
+  ```
+  > hello world!
+
+: ### strip_newlines
+
+  从字符串中删除所有换行字符
+
+  ```liquid
+  {%- raw -%}
+  {% capture string %}
+  hello
+  world!
+  {% endcapture %}
+  {{ string | newline_to_br }}
+  {% endraw %}
+  ```
+  > <br/\>  
+  > <br/\>  
+  > hello 
+  > world!
+
+: ### truncate
+
+  将字符串截短为指定的字符个数
+
+  ```liquid
+  {%- raw -%}
+  {{ "hello world!" | truncate: 8 }}
+  {{ "hello world!" | truncate: 8, "" }}
+  {{ "hello world!" | truncate: 8, "~~~" }}
+  {% endraw %}
+  ```
+  > hello...  
+  > hello wo  
+  > hello~~~
+
+: ### truncatewords
+
+  将字符串截短为指定的单词个数
+
+  ```liquid
+  {%- raw -%}
+  {{ "hello world!" | truncatewords: 1 }}
+  {{ "hello world!" | truncatewords: 1, "" }}
+  {{ "hello world!" | truncatewords: 1, "~~~" }}
+  {% endraw %}
+  ```
+  > hello...  
+  > hello  
+  > hello~~~
+
+: ### lstrip
+
+  删除字符串左侧的所有空白符
+
+  ```liquid
+  {%- raw -%}
+  {{ "          hello world!     " | lstrip }}
+  {% endraw %}
+  ```
+  > hello world!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+: ### newline_to_br
+
+  将所有换行符(\n) 替换为 HTML 的 (\<br\>) 标签
+
+  ```liquid
+  {%- raw -%}
+  {% capture string %}
+  hello
+  world!
+  {% endcapture %}
+  {{ string | newline_to_br }}
+  {% endraw %}
+  ```
+  > \<br /\>  
+  > hello\<br /\>  
+  > world\<br /\>
+
+: ### prepend
+
+  在一个字符串前面附加另一个字符串
+
+  ```liquid
+  {%- raw -%}
+  {{ "world!" | prepend: "hello " }}
+  {% endraw %}
+  ```
+  > hello world!
+
+: ### remove
+
+  从一个字符串中删除所有出现的另一个子字符串
+
+  ```liquid
+  {%- raw -%}
+  {{ "hello hello world!" | remove: "hello " }}
+  {% endraw %}
+  ```
+  > world!
+
+: ### remove_first
+
+  从一个字符串中仅仅删除第一次出现的另一个子字符串
+
+  ```liquid
+  {%- raw -%}
+  {{ "hello hello world!" | remove: "hello " }}
+  {% endraw %}
+  ```
+  > hello world!
+
+: ### replace
+
+  将参数中给出的第一个参数全部替换为第二个参数
+
+  ```liquid
+  {%- raw -%}
+  {{ "hello hello world!" | replace: "hello ", "hey " }}
+  {% endraw %}
+  ```
+  > hey hey world!
+
+: ### replace_first
+
+  从一个字符串中删除所有出现的另一个子字符串
+
+  ```liquid
+  {%- raw -%}
+  {{ "hello hello world!" | replace_first: "hello ", "hey " }}
+  {% endraw %}
+  ```
+  > hey hello world!
+
+: ### rstrip
+
+  删除字符串右侧的所有空白字符
+
+  ```liquid
+  {%- raw -%}
+  {{ "      hello world!     " | lstrip }}
+  {% endraw %}
+  ```
+  > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello world!
+
+: ### size
+
+  返回字符串中所包含的字符数或者数组中所包含的条目数量
+
+  ```liquid
+  {%- raw -%}
+  {{ "hello world!" | size }}
+  {{ arr.size }}
+  {% endraw %}
+  ```
+  > 12  
+  > 3
+
+: ### slice
+
+  返回字符串指定位置的字符
+
+  ```liquid
+  {%- raw -%}
+  {{ "hello world!" | slice: 0 }}
+  {{ "hello world!" | slice: 0,5 }}
+  {% endraw %}
+  ```
+  > h  
+  > hello
+
+: ### size
+
+  返回字符串中所包含的字符数或者数组中所包含的条目数量
+
+  ```liquid
+  {%- raw -%}
+  {{ "hello world!" | size }}
+  {{ arr.size }}
+  {% endraw %}
+  ```
+  > 12  
+  > 3
 ^
 
-compact
-: 删除数组中的所有 nil 值
+数组处理
+
+: ### compact
+
+  删除数组中的所有 nil 值
 
   ```liquid
   {%- raw -%}
@@ -254,10 +588,10 @@ compact
   ```
   > title     
   > author
-^
 
-concat
-: 拼接多个数组
+: ### concat
+
+  拼接多个数组
 
   ```liquid
   {%- raw -%}
@@ -270,78 +604,10 @@ concat
   > item1  
   > item1  
   > item2
-^
 
-date
-: 格式化时间戳，[格式语法](http://strftime.net/)
+: ###　first
 
-  ```liquid
-  {%- raw -%}
-  {{ date | date: "%a, %b %d, %y" }}
-  {% endraw %}
-  ```
-  > Fri, Jul 17, 15
-^
-
-default
-: 当值不存在时，为其指定一个默认值
-
-  ```liquid
-  {%- raw -%}
-  {{ price | default: 2.99 }}
-  {% endraw %}
-  ```
-  > 2.99
-^
-
-divided_by
-: 将两个数相除，结果向下取整
-
-  ```liquid
-  {%- raw -%}
-  {{ 16 | divided_by: 4 }}
-  {{ 5 | divided_by: 3 }}
-  {% endraw %}
-  ```
-  > 4   
-  > 1
-^
-
-downcase
-: 将字符串换为小写形式
-
-  ```liquid
-  {%- raw -%}
-  {{ "HEllo WORld" | downcase }}
-  {% endraw %}
-  ```
-  > hello world
-^
-
-escape
-: 对字符串字符进行转译
-
-  ```liquid
-  {%- raw -%}
-  {{ "hello world!!" | escape }}
-  {% endraw %}
-  ```
-  > hello%20world!!
-^
-
-escape_once
-: 转义字符串并且不修改已经转义过的实体
-
-  ```liquid
-  {%- raw -%}
-  {{ "hello%20world !!" | escape }}
-  {% endraw %}
-  ```
-  > hello%20world%20!!
-^
-
-first
-: 返回数组的第一项
+  返回数组的第一项
 
   ```liquid
   {%- raw -%}
@@ -349,23 +615,10 @@ first
   {% endraw %}
   ```
   > title
-^
 
-floor
-: 舍弃数值小数部分
+: ### join
 
-  ```liquid
-  {%- raw -%}
-  {{ 1.2 | floor }}
-  {{ "3.5" | floor }}
-  {% endraw %}
-  ```
-  > 1   
-  > 3
-^
-
-join
-: 拼接数组的项，并将参数作为分隔符
+  拼接数组的项，并将参数作为分隔符
 
   ```liquid
   {%- raw -%}
@@ -374,10 +627,10 @@ join
   {% endraw %}
   ```
   > title & author & date
-^
 
-last
-: 返回数组中的最后一项
+: ### last
+
+  返回数组中的最后一项
 
   ```liquid
   {%- raw -%}
@@ -385,142 +638,19 @@ last
   {% endraw %}
   ```
   > date
-^
 
-lstrip
-: 删除字符串左侧的所有空白符
+: ### map
 
-  ```liquid
-  {%- raw -%}
-  {{ "          hello world!     " | lstrip }}
-  {% endraw %}
-  ```
-  > hello world!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-^
-
-map
-: 从对象（object）中提取指定名称的属性的值，并用这些值构建一个数组
+  从对象（object）中提取指定名称的属性的值，并用这些值构建一个数组
 
   ```liquid
   {%- raw -%}
   {% assign arr = obj | map: "key" %}
   {% endraw %}
   ```
-^
+: ### reverse
 
-minus
-: 从一个数中减去另一个数
-
-  ```liquid
-  {%- raw -%}
-  {{ 4 | minus: 2 }}
-  {{ 183.357 | minus: 12 }}
-  {% endraw %}
-  ```
-  > 2  
-  > 171.357
-^
-
-modulo
-: 返回除法运算的余数
-
-  ```liquid
-  {%- raw -%}
-  {{ 3 | modulo: 2 }}
-  {{ 183.357 | modulo: 12 }}
-  {% endraw %}
-  ```
-  > 1  
-  > 3.357
-^
-
-newline_to_br
-: 将所有换行符(\n) 替换为 HTML 的 (\<br\>) 标签
-
-  ```liquid
-  {%- raw -%}
-  {% capture string %}
-  hello
-  world!
-  {% endcapture %}
-  {{ string | newline_to_br }}
-  {% endraw %}
-  ```
-  > \<br /\>  
-  > hello\<br /\>  
-  > world\<br /\>
-^
-
-plus
-: 两个数相加
-
-  ```liquid
-  {%- raw -%}
-  {{ 4 | plus: 2 }}
-  {{ 183.357 | plus: 12 }}
-  {% endraw %}
-  ```
-  > 6   
-  > 195.357
-^
-
-prepend
-: 在一个字符串前面附加另一个字符串
-
-  ```liquid
-  {%- raw -%}
-  {{ "world!" | prepend: "hello " }}
-  {% endraw %}
-  ```
-  > hello world!
-^
-
-remove
-: 从一个字符串中删除所有出现的另一个子字符串
-
-  ```liquid
-  {%- raw -%}
-  {{ "hello hello world!" | remove: "hello " }}
-  {% endraw %}
-  ```
-  > world!
-^
-
-remove_first
-: 从一个字符串中仅仅删除第一次出现的另一个子字符串
-
-  ```liquid
-  {%- raw -%}
-  {{ "hello hello world!" | remove: "hello " }}
-  {% endraw %}
-  ```
-  > hello world!
-^
-
-replace
-: 将参数中给出的第一个参数全部替换为第二个参数
-
-  ```liquid
-  {%- raw -%}
-  {{ "hello hello world!" | replace: "hello ", "hey " }}
-  {% endraw %}
-  ```
-  > hey hey world!
-^
-
-replace_first
-: 从一个字符串中删除所有出现的另一个子字符串
-
-  ```liquid
-  {%- raw -%}
-  {{ "hello hello world!" | replace_first: "hello ", "hey " }}
-  {% endraw %}
-  ```
-  > hey hello world!
-^
-
-reverse
-: 将数组中的所有项的顺序反转
+  将数组中的所有项的顺序反转
 
   ```liquid
   {%- raw -%}
@@ -528,73 +658,10 @@ reverse
   {% endraw %}
   ```
   > date, author, title
-^
 
-round
-: 将浮点数舍入到最近的整数或指定精度
+: ### sort
 
-  ```liquid
-  {%- raw -%}
-  {{ 1.2 | round }}
-  {{ 183.357 | round: 2 }}
-  {% endraw %}
-  ```
-  > 1  
-  > 183.36
-^
-
-rstrip
-: 删除字符串右侧的所有空白字符
-
-  ```liquid
-  {%- raw -%}
-  {{ "      hello world!     " | lstrip }}
-  {% endraw %}
-  ```
-  > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello world!
-^
-
-size
-: 返回字符串中所包含的字符数或者数组中所包含的条目数量
-
-  ```liquid
-  {%- raw -%}
-  {{ "hello world!" | size }}
-  {{ arr.size }}
-  {% endraw %}
-  ```
-  > 12  
-  > 3
-^
-
-slice
-: 返回字符串指定位置的字符
-
-  ```liquid
-  {%- raw -%}
-  {{ "hello world!" | slice: 0 }}
-  {{ "hello world!" | slice: 0,5 }}
-  {% endraw %}
-  ```
-  > h  
-  > hello
-^
-
-size
-: 返回字符串中所包含的字符数或者数组中所包含的条目数量
-
-  ```liquid
-  {%- raw -%}
-  {{ "hello world!" | size }}
-  {{ arr.size }}
-  {% endraw %}
-  ```
-  > 12  
-  > 3
-^
-
-sort
-: 对数组项进行排序，区分大小写
+  对数组项进行排序，区分大小写
 
   ```liquid
   {%- raw -%}
@@ -602,10 +669,10 @@ sort
   {% endraw %}
   ```
   > Date author title
-^
 
-sort_natural
-: 对数组进行排序，并且大小写无关
+: ### sort_natural
+
+  对数组进行排序，并且大小写无关
 
   ```liquid
   {%- raw -%}
@@ -613,103 +680,20 @@ sort_natural
   {% endraw %}
   ```
   > author Date title
-^
 
-split
-: 根据分隔符将字符串分解为数组
+: ### split
+
+  根据分隔符将字符串分解为数组
 
   ```liquid
   {%- raw -%}
   {% assign arr = "title, author, date" | split: ", " %}
   {% endraw %}
   ```
-^
 
-strip
-: 删除字符串左右两侧的所有空白符号
+: ### uniq
 
-  ```liquid
-  {%- raw -%}
-  {{ "      hello world!     " | lstrip }}
-  {% endraw %}
-  ```
-  > hello world!
-^
-
-strip_html
-: 从字符串中删除所有 HTML 标签
-
-  ```liquid
-  {%- raw -%}
-  {{ "<h1>hello world!</h1>" | strip_html }}
-  {% endraw %}
-  ```
-  > hello world!
-^
-
-strip_newlines
-: 从字符串中删除所有换行字符
-
-  ```liquid
-  {%- raw -%}
-  {% capture string %}
-  hello
-  world!
-  {% endcapture %}
-  {{ string | newline_to_br }}
-  {% endraw %}
-  ```
-  > <br/\>  
-  > <br/\>  
-  > hello 
-  > world!
-^
-
-times
-: 将一个数乘以另一个数
-
-  ```liquid
-  {%- raw -%}
-  {{ 3 | times: 2 }}
-  {{ 183.357 | times: 12 }}
-  {% endraw %}
-  ```
-  > 6  
-  > 2200.284
-^
-
-truncate
-: 将字符串截短为指定的字符个数
-
-  ```liquid
-  {%- raw -%}
-  {{ "hello world!" | truncate: 8 }}
-  {{ "hello world!" | truncate: 8, "" }}
-  {{ "hello world!" | truncate: 8, "~~~" }}
-  {% endraw %}
-  ```
-  > hello...  
-  > hello wo  
-  > hello~~~
-^
-
-truncatewords
-: 将字符串截短为指定的单词个数
-
-  ```liquid
-  {%- raw -%}
-  {{ "hello world!" | truncatewords: 1 }}
-  {{ "hello world!" | truncatewords: 1, "" }}
-  {{ "hello world!" | truncatewords: 1, "~~~" }}
-  {% endraw %}
-  ```
-  > hello...  
-  > hello  
-  > hello~~~
-^
-
-uniq
-: 删除数组中的所有重复项
+  删除数组中的所有重复项
 
   ```liquid
   {%- raw -%}
@@ -720,35 +704,27 @@ uniq
   > title, author, date
 ^
 
-upcase
-: 将字符串中的每个字符都转换为大写形式
+其他
+: ### date
+
+  格式化时间戳，[格式语法](http://strftime.net/)
 
   ```liquid
   {%- raw -%}
-  {{ "hello World!" | upcase }}
+  {{ date | date: "%a, %b %d, %y" }}
   {% endraw %}
   ```
-  > HELLO WORLD!
-^
+  > Fri, Jul 17, 15
 
-url_decode
-: 对于作为 URL 的字符串进行解码
+: ### default
+
+  当值不存在时，为其指定一个默认值
 
   ```liquid
   {%- raw -%}
-  {{ "%27hello+world%21%27" | url_decode }}
+  {{ price | default: 2.99 }}
   {% endraw %}
   ```
-  > 'hello world!'
+  > 2.99
 ^
 
-url_encode
-: 对于 URL 的字符串进行编码
-
-  ```liquid
-  {%- raw -%}
-  {{ "'hello world!'" | url_encode }}
-  {% endraw %}
-  ```
-  > %27hello+world%21%27
-^
