@@ -1,91 +1,118 @@
 @import '~@/assets/css/utils';
-
 .-note {
-    padding: 2.5rem 0;
-    &::after {
+  padding: 2.5rem 0;
+  
+  h2 {
+    width: 100%;
+    margin: 0;
+    padding: 0 10px;
+    font-size: 1.4em;
+    font-weight: 400;
+  }
+
+  h3 {
+    margin: 0;
+    padding: 0 10px;    
+    font-size: 1em;
+    font-weight: 400;    
+  }
+
+  dl {
+    width: 50%;
+    margin: 0;
+    padding: 0 10px;
+
+    dt {
+      position: relative;
+      margin: 2rem 0 1rem 0;
+      font-size: 1rem;
+
+      &::after {
         content: "";
-        display: block;
-        clear: both;
-    }
-
-    dl {
-        float: left;
-        width: 50%;
-        padding: 10px;
-
-        dt {
-            line-height: 2;
-            // padding: 0 20px;
-        }
-
-        dd {
-            margin: 0;
-            
-            background-color: white;
-            box-shadow: 0 6px 8px rgba(102,119,136,0.03), 0 1px 2px rgba(102,119,136,0.3);
-            overflow: auto;
-        }
-    }
-
-    h2 {
-        float: left;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         width: 100%;
-        margin: 20px 0 0 0;
-        padding: 0 10px;
-        line-height: 1;
-        font-weight: 400;
+        height: 1px;
+        margin-left: 10px;
+        background: linear-gradient(to right,rgba(91, 91, 94, 0.3),transparent 80%);
+      }
     }
 
-    pre {
-        margin: 0;
+    dd {
+      margin: 0;
+      background-color: white;
+      box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03), 0 1px 2px rgba(102, 119, 136, 0.3);
+    }
+
+    dd:not(:last-child) {
+      border-bottom: 1px rgb(240, 240, 240) solid;
+    }
+  }
+
+  p {
+    padding: 0 10px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    tr {
+        @include _flex( between);
         padding: 5px 10px;
-        line-height: 1.4;
-        code {
-            font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            font-size: 0.8rem;
-        }
     }
+  }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        tr {
-            @include _flex( between );
-            padding: 5px 10px;
-        }
-    }
+  blockquote {
+      margin: 0;
+      padding: 5px 10px;
+      background-color: #f8f9fa;
+  }
 
-    blockquote {
-        margin: 0;
-        padding: 5px 10px;
-        background-color: #f8f9fa;
-    }
+  pre {
+      margin: 0;
+      padding: 5px 10px;
+      line-height: 1.4;
+      code {
+          font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+          font-size: .8rem;
+      }
+  }
 
-    @include _media( xl ) {
-        width: 1000px;
-    };
-    @include _media( lg ) {
-        max-width: 1000px;
-        width: 76%;
-        min-width: 820px;
-    };
-    @include _media( md ) {
-        max-width: 819px;
-        width: 80%;
-        min-width: 580px;
+  .highlighter-rouge {
+    overflow: auto;
+  }
 
-        dl {
-            width: 100%;
-        }
-    };
-    @include _media( sm ) {
-        max-width: 579px;
-        width: 75%;
-        min-width: 420px;
-    };
-    @include _media( xs ) {
-        max-width: 419px;
-        width: 100%;
-        min-width: unset;
-    };
+  .highlighter-rouge + blockquote {
+    background-color: rgb(230, 230, 230);
+    font-size: .8rem;
+    line-height: 1.5;
+  }
+
+  @include _media( xl) {
+      width: 1000px;
+  }
+  @include _media( lg) {
+      max-width: 1000px;
+      width: 76%;
+      min-width: 820px;
+  }
+  @include _media( md) {
+      max-width: 819px;
+      width: 80%;
+      min-width: 580px;
+      dl {
+          width: 100%;
+      }
+  }
+  @include _media( sm) {
+      max-width: 579px;
+      width: 75%;
+      min-width: 420px;
+  }
+  @include _media( xs) {
+      max-width: 419px;
+      width: 100%;
+      min-width: unset;
+  }
 }
