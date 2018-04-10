@@ -12,9 +12,11 @@
 
   h3 {
     margin: 0;
-    padding: 0 10px;    
+    padding: 0 10px;
+    color: white;
+    background-color: #929caa;
     font-size: 1em;
-    font-weight: 400;    
+    font-weight: 400;
   }
 
   dl {
@@ -25,6 +27,7 @@
     dt {
       position: relative;
       margin: 2rem 0 1rem 0;
+      color: #5e6d82;
       font-size: 1rem;
 
       &::after {
@@ -52,6 +55,7 @@
 
   p {
     padding: 0 10px;
+    font-size: 1rem;
   }
 
   table {
@@ -70,23 +74,29 @@
   }
 
   pre {
-      margin: 0;
+      margin: 10px;
       padding: 5px 10px;
       line-height: 1.4;
       code {
           font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
           font-size: .8rem;
+          line-height: 1;
+          vertical-align: text-top;
       }
   }
 
-  .highlighter-rouge {
+  .highlighter-rouge { 
     overflow: auto;
-  }
 
-  .highlighter-rouge + blockquote {
-    background-color: rgb(230, 230, 230);
-    font-size: .8rem;
-    line-height: 1.5;
+    & + blockquote {
+      background-color: rgb(230, 230, 230);
+      vertical-align: text-top;
+
+      p {
+        font-size: .8rem;
+        line-height: 1.4;
+      }
+    }
   }
 
   @include _media( xl) {
