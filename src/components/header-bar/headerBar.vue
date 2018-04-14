@@ -1,6 +1,7 @@
 <template>
     <header class="header-container">
         <img class="header-container__avater" alt="avatar" draggable="false" @click="click" :src="author.avatar"/>
+        <slot></slot>
     </header>
 </template>
 

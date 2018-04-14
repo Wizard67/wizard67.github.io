@@ -1,13 +1,15 @@
 <template>
     <div id="app">
         <header-bar :author = 'author'
-            @avatarClick = 'toggleFocus' />
-        
-        <nav-menu v-if="isFocus"
-            :nav="nav"
-            @outsideClick = 'toggleFocus' >
-            <p slot="empty">暂无内容</p>
-        </nav-menu>
+            @avatarClick = 'toggleFocus' >
+
+            <nav-menu v-if="isFocus"
+                :nav="nav"
+                @outsideClick = 'toggleFocus' >
+                <p slot="empty">暂无内容</p>
+            </nav-menu>
+
+        </header-bar>
 
         <main :class="{'-focus': isFocus}">
             <router-view/>
