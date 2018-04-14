@@ -1,49 +1,40 @@
 <template>
-    <article class="content -note" v-if="content" v-html="content">
-    </article>
-    <!-- loding -->
-    <div class="loading-wrap" v-else>
-        <div></div>
-        <div></div>
-    </div>
+    <article class="content -note" v-if="content" v-html="content" />
+    <Loading v-else />
 </template>
 
 <script>
 import Masonry from 'masonry-layout'
+import Loading from '@/components/loading'
 
-const namespace = 'notes'
+let masonry
 
 export default {
-    path: `/${namespace}/:pre/:title`,
-    name: namespace,
-    data() {
-        return {
-            masonry: ''
-        }
+    path: '/notes/:pre/:title',
+    name: 'notes',
+    components: {
+        Loading
     },
     computed: {
         content() {
-            return this.$store.state[namespace].content
+            return this.$store.state['notes'].content
         }
     },
     mounted() {
-        this.$store.dispatch(`${namespace}/getContent`, this.$route)
+        this.$store.dispatch('notes/getContent', this.$route)
     },
     watch: {
         content(){
             this.$nextTick(()=>{
-                this.masonry = new Masonry( this.$el, {
+                masonry = new Masonry( this.$el, {
                     columnWidth: 'dl',
                     percentPosition: true
                 } )
             })
-        },
-        $route(n){
-            this.$store.dispatch(`${namespace}/getContent`, n)
         }
     },
     destroyed() {
-        this.masonry.destroy()
+        masonry.destroy()
     }
 }
 </script>

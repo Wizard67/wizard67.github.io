@@ -40,6 +40,11 @@ export default {
     created() {
         this.$store.dispatch('getNav')
     },
+    watch: {
+        $route(n){
+            this.$store.dispatch(`${this.$route.name}/getContent`, n)
+        }
+    },
     components: {
         headerBar,
         navMenu,
