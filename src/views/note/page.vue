@@ -30,6 +30,7 @@ export default {
           ? new Masonry(this.$el, {
               columnWidth: "ul",
               horizontalOrder: true,
+              gutter: 20,
               percentPosition: true
             })
           : {

@@ -1,100 +1,91 @@
 @import '~@/assets/css/utils';
+
+$--borderColor: rgb(194, 194, 194);
+
 .-note {
   padding: 2.5rem 0;
   
+  & > {
+    h1,
+    h2,
+    h3,
+    h4, h5, h6,
+    blockquote,
+    ul,
+    ol,
+    p,
+    hr,
+    div.highlighter-rouge {
+      width: 100%;
+      margin: .5rem 0;
+    }
+
+    ul {
+      width: calc(50% - 20px/2);
+      padding: 0 10px;
+    }
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+
   h2 {
-    width: 100%;
-    margin: 0;
-    padding: 0 10px;
-    font-size: 1.4em;
+    font-size: 1.4rem;
     font-weight: 400;
   }
 
   h3 {
-    margin: 0;
-    padding: 0 10px;
-    color: white;
-    background-color: #929caa;
-    font-size: 1em;
+    font-size: 1.2rem;
     font-weight: 400;
   }
 
-  dl {
-    width: 50%;
-    margin: 0;
-    padding: 0 10px;
-
-    dt {
-      position: relative;
-      margin: 2rem 0 1rem 0;
-      color: #5e6d82;
-      font-size: 1rem;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        height: 1px;
-        margin-left: 10px;
-        background: linear-gradient(to right,rgba(91, 91, 94, 0.3),transparent 80%);
-      }
-    }
-
-    dd {
-      margin: 0;
-      background-color: white;
-      box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03), 0 1px 2px rgba(102, 119, 136, 0.3);
-    }
-
-    dd:not(:last-child) {
-      border-bottom: 1px rgb(240, 240, 240) solid;
-    }
-  }
-
-  p {
-    padding: 0 10px;
+  h4, h5, h6 {
     font-size: 1rem;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    tr {
-        @include _flex( between);
-        padding: 5px 10px;
-    }
+    font-weight: 400;
   }
 
   blockquote {
-      margin: 0;
-      padding: 5px 10px;
-      background-color: #f8f9fa;
+    padding: 0 1em;
+    border-left: .3rem $--borderColor solid; 
+  }
+
+  ul {
+    border: 1px $--borderColor solid;
+  }
+
+  ol {
+    padding-left: 2em;
+  }
+
+  p {
+
+  }
+
+  hr {
+    height: 0px;
+    border: none;
+    border-bottom: 1px $--borderColor solid;
+    outline: none;
   }
 
   pre {
-      margin: 10px;
-      padding: 5px 10px;
-      line-height: 1.4;
-      code {
-          font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-          font-size: .8rem;
-          line-height: 1;
-          vertical-align: text-top;
-      }
+    line-height: 1.4;
+    code {
+        font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: .8rem;
+        line-height: 1;
+        vertical-align: text-top;
+    }
   }
 
-  .highlighter-rouge { 
-    overflow: auto;
+  .highlighter-rouge {
+    pre {
+      overflow: hidden;
 
-    & + blockquote {
-      background-color: rgb(230, 230, 230);
-      vertical-align: text-top;
-
-      p {
-        font-size: .8rem;
-        line-height: 1.4;
+      &:hover {
+        overflow: auto;
       }
     }
   }
@@ -111,8 +102,9 @@
       max-width: 819px;
       width: 80%;
       min-width: 580px;
-      dl {
-          width: 100%;
+
+      ul {
+        width: 100%;
       }
   }
   @include _media( sm) {
