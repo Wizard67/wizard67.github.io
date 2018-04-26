@@ -90,6 +90,14 @@ $--borderColor: rgb(194, 194, 194);
     }
   }
 
+  a {
+    padding-bottom: .25em;
+    border-bottom: 1px currentColor solid;
+    color: inherit;
+    background-color: transparent;
+    text-decoration:none;
+  }
+
   @include _media( xl) {
       width: 1000px;
   }
