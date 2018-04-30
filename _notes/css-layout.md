@@ -7,6 +7,21 @@
 
 ### 水平居中 & 垂直居中
 
+-   gird - [Grid Layout](https://drafts.csswg.org/css-grid-1/)
+-   ```css
+    .container {
+      display:grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .item {
+      grid-row: 2;
+      grid-column: 2;
+    }
+    ```
+-   [IE10 +](https://caniuse.com/#search=grid)
+^
+
 -   flex - [Flex Layout](https://drafts.csswg.org/css-flexbox-1/)
 -   ```css
     .container {
@@ -18,7 +33,6 @@
       /* ... */
     }
     ```
--   
 -   [IE10 +](https://caniuse.com/#search=flex)
 ^
 
@@ -70,7 +84,7 @@
     ```
 ^
 
--   position absolute - [Explanation](https://www.smashingmagazine.com/2013/08/absolute-horizontal-vertical-centering-css/#Explanation)
+-   position absolute - [Positioned Layout](https://drafts.csswg.org/css-position-3/) & [原理](https://www.smashingmagazine.com/2013/08/absolute-horizontal-vertical-centering-css/#Explanation)
 -   ```css
     .container {
       position: relative;
@@ -89,5 +103,38 @@
     ```
 ^
 
-------
+-   inline element - [Text](https://drafts.csswg.org/css-text-3/#text-align-property)
+-   ```css
+    .container {
+      height: 100px;
+      text-align: center;
+    }
+    .item {
+      display: inline; /* inline | inline-* */
+      line-height: 100px;
+    }
+    ```
+^
+
+-   ::before
+-   ```css
+    .container {
+      position: relative;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+    }
+    .container::before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
+    .item {
+      display: inline; /* inline | inline-* */
+    }
+    ```
+^
 
