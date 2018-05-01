@@ -59,12 +59,19 @@ $--borderColor: rgb(194, 194, 194);
   }
 
   blockquote {
-    padding: 0 1em;
     border-left: .3rem $--borderColor solid; 
   }
 
   ul {
+    padding: 10px;
     border: 1px $--borderColor solid;
+
+    font-size: .9rem;
+
+    li {
+      margin: 1rem 0;
+      line-height: 1.4;
+    }
   }
 
   ol {
@@ -84,30 +91,43 @@ $--borderColor: rgb(194, 194, 194);
 
   pre {
     line-height: 1.4;
+
     code {
-        font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        font-size: .8rem;
-        line-height: 1;
-        vertical-align: text-top;
+      line-height: 1;
+      vertical-align: text-top;
     }
   }
 
   .highlighter-rouge {
+    
     pre {
-      overflow: hidden;
+      margin: 1rem 0;
+      overflow: auto;
 
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,0);
+        transition: all .5s cubic-bezier(.35,0,.25,1);
+      }
       &:hover {
-        overflow: auto;
+        &::-webkit-scrollbar-thumb {
+          background-color: rgba(0,0,0,.15);
+          transition: all .5s cubic-bezier(.35,0,.25,1);
+        }
       }
     }
   }
 
   a {
-    padding-bottom: .25em;
+    padding-bottom: .125em;
     border-bottom: 1px currentColor solid;
     color: inherit;
     background-color: transparent;
     text-decoration:none;
+  }
+
+  code {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: inherit;
   }
 
   @include _media( xl) {
