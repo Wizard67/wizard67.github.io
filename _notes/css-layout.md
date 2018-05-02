@@ -3,6 +3,8 @@
 
 # CSS Layout
 
+> 除了 `flex-box` 和 `grid-system` 是 CSS 专门用以处理复杂布局的模块方案外，其余的均是 [「历史遗留」](https://www.zhihu.com/question/19583370) 的解决方案
+
 ## 水平居中 & 垂直居中
 
 -   flex - [Flex Layout](https://drafts.csswg.org/css-flexbox-1/)
@@ -67,7 +69,7 @@
 -   [DEMO](https://codepen.io/wizard67/pen/MGmmKw)
 ^
 
--   position absolute - [Positioned Layout](https://drafts.csswg.org/css-position-3/) & [原理](https://www.smashingmagazine.com/2013/08/absolute-horizontal-vertical-centering-css/#Explanation)
+-   position - [Positioned Layout](https://drafts.csswg.org/css-position-3/) & [原理](https://www.smashingmagazine.com/2013/08/absolute-horizontal-vertical-centering-css/#Explanation)
 -   ```css
     .container {
       position: relative;
@@ -143,7 +145,7 @@
       text-align: justify;
       text-justify: distribute-all-lines;  /* ie6-8 */
       text-align-last: justify;            /* ie9 */
-      -moz-text-align-last: justify;        /* ff */
+      -moz-text-align-last: justify;       /* ff */
       -webkit-text-align-last: justify;    /* chrome 20+ */
       font-size: 0;
     }
@@ -162,4 +164,16 @@
     ```
 -   [DEMO](https://codepen.io/wizard67/pen/YLVxXq)
 ^
- 
+
+-   grid - [Grid Layout](https://drafts.csswg.org/css-grid-1/)
+-   ```css
+    .container {
+      display: grid;
+      justify-content: space-between;
+      grid-auto-flow: column;
+    }
+    .item {
+    }
+    ```
+-   [DEMO](https://codepen.io/wizard67/pen/NMjepy) # [IE10 +](https://caniuse.com/#search=flex)
+^
