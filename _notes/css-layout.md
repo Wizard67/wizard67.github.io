@@ -123,7 +123,7 @@
 -   [DEMO](https://codepen.io/wizard67/pen/yjbbgN)
 ^
 
-## 均匀布局
+## 两端对齐
 
 -   flex - [Flex Layout](https://drafts.csswg.org/css-flexbox-1/)
 -   ```css
@@ -137,21 +137,29 @@
 -   [DEMO](https://codepen.io/wizard67/pen/XqRaWO) # [IE10 +](https://caniuse.com/#search=flex)
 ^
 
--   inline element - [原理](http://www.cnblogs.com/coco1s/p/5915429.html)
+-   inline element - [原理](https://www.zhihu.com/question/19895400)
 -   ```css
     .container{
-      position:relative;
       text-align: justify;
+      text-justify: distribute-all-lines;  /* ie6-8 */
+      text-align-last: justify;            /* ie9 */
+      -moz-text-align-last: justify;        /* ff */
+      -webkit-text-align-last: justify;    /* chrome 20+ */
+      font-size: 0;
     }
-    .container::after {
-      content: "";
-      position: relative;
-      display: inline-block;
-      width: 100%;
+    /* hack webkit */
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      .container::after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+      }
     }
     .item{
-      display:inline-block; /* inline-* */
+      display: inline-block; /* inline-* */
+      font-size: 16px;       /* reset */
     }
     ```
 -   [DEMO](https://codepen.io/wizard67/pen/YLVxXq)
 ^
+ 
