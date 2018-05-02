@@ -3,24 +3,7 @@
 
 # CSS Layout
 
-##  页面布局
-
-### 水平居中 & 垂直居中
-
--   gird - [Grid Layout](https://drafts.csswg.org/css-grid-1/)
--   ```css
-    .container {
-      display:grid;
-      grid-template-rows: repeat(3, 1fr);
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .item {
-      grid-row: 2;
-      grid-column: 2;
-    }
-    ```
--   [IE10 +](https://caniuse.com/#search=grid)
-^
+## 水平居中 & 垂直居中
 
 -   flex - [Flex Layout](https://drafts.csswg.org/css-flexbox-1/)
 -   ```css
@@ -30,10 +13,9 @@
       align-items: center;      /* 垂直居中 */
     }
     .item {
-      /* ... */
     }
     ```
--   [IE10 +](https://caniuse.com/#search=flex)
+-   [DEMO](https://codepen.io/wizard67/pen/bMWqWv) # [IE10 +](https://caniuse.com/#search=flex)
 ^
 
 -   transform - [Positioned Layout](https://drafts.csswg.org/css-position-3/) & [Transforms](https://drafts.csswg.org/css-transforms-1/)
@@ -48,7 +30,7 @@
       transform: translate(-50%, -50%);
     }
     ```
--   [IE9 +](https://caniuse.com/#search=transform)
+-   [DEMO](https://codepen.io/wizard67/pen/JvNWpG) # [IE9 +](https://caniuse.com/#search=transform)
 ^
 
 -   table - [Table](https://drafts.csswg.org/css-tables-3/)
@@ -60,11 +42,11 @@
       vertical-align: middle;
     }
     .item {
-      /* ... */
+      display: inline-block;  /* inline-* */
     }
     ```
 -   当要定义 `100%` 的容器宽度，须使用 `100vw` 代替，或者添加外层为 `display: table` 的容器
--   vw - [IE9 +](https://caniuse.com/#search=vw)
+-   [DEMO](https://codepen.io/wizard67/pen/rvmyQN) # [vw: IE9 +](https://caniuse.com/#search=vw)
 ^
 
 -   margin - [Basic Box](https://drafts.csswg.org/css-box-3/#margin-props)
@@ -82,6 +64,7 @@
       margin: -50px 0 0 -50px;  /* -(width|height)/2 */
     }
     ```
+-   [DEMO](https://codepen.io/wizard67/pen/MGmmKw)
 ^
 
 -   position absolute - [Positioned Layout](https://drafts.csswg.org/css-position-3/) & [原理](https://www.smashingmagazine.com/2013/08/absolute-horizontal-vertical-centering-css/#Explanation)
@@ -101,6 +84,7 @@
       height: 100px;
     }
     ```
+-   [DEMO](https://codepen.io/wizard67/pen/KRmmMP)
 ^
 
 -   inline element - [Text](https://drafts.csswg.org/css-text-3/#text-align-property)
@@ -110,31 +94,64 @@
       text-align: center;
     }
     .item {
-      display: inline; /* inline | inline-* */
-      line-height: 100px;
+      display: inline;
+      line-height: 100px; /* 值为父级容器高度 */
     }
     ```
+-   适用于文本
+-   [DEMO](https://codepen.io/wizard67/pen/JvNNKN)
 ^
 
--   ::before
+-   ::before - [原理: 添加偽元素](http://www.oxxostudio.tw/articles/201408/css-vertical-align.html)
 -   ```css
     .container {
       position: relative;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
       text-align: center;
     }
     .container::before {
       content: "";
       display: inline-block;
-      vertical-align: middle;
+      width: 0;
       height: 100%;
+      vertical-align: middle;
     }
     .item {
-      display: inline; /* inline | inline-* */
+      display: inline-block; /* inline-* */
+      vertical-align: middle;
     }
     ```
+-   [DEMO](https://codepen.io/wizard67/pen/yjbbgN)
 ^
 
+## 均匀布局
+
+-   flex - [Flex Layout](https://drafts.csswg.org/css-flexbox-1/)
+-   ```css
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .item {
+    }
+    ```
+-   [DEMO](https://codepen.io/wizard67/pen/XqRaWO) # [IE10 +](https://caniuse.com/#search=flex)
+^
+
+-   inline element - [原理](http://www.cnblogs.com/coco1s/p/5915429.html)
+-   ```css
+    .container{
+      position:relative;
+      text-align: justify;
+    }
+    .container::after {
+      content: "";
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+    .item{
+      display:inline-block; /* inline-* */
+    }
+    ```
+-   [DEMO](https://codepen.io/wizard67/pen/YLVxXq)
+^
