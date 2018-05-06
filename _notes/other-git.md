@@ -6,8 +6,9 @@
 > 开源的分布式版本控制系统，可以有效、高速地进行项目版本管理
 
 [Git 官网](https://git-scm.com/)
-
 [Pro Git 中文](https://git-scm.com/book/zh/v2)
+[Git Recipes](https://github.com/geeeeeeeeek/git-recipes/wiki)
+[git 扩展](http://yonghaowu.github.io/2017/06/18/TheGitYouShouldKnow/)
 
 ## 配置
 
@@ -191,3 +192,10 @@
     $ git push -f origin master
     ```
 ^
+
+## Gogs
+
+Gogs 是一款极易搭建的自助 Git 服务（可以在 Windows 环境中搭建）
+
+[官网](https://gogs.io/)
+

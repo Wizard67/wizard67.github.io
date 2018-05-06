@@ -6,7 +6,6 @@
 > Jekyll 是一个简单的静态博客生成器。使用约定的目录结构和文档格式，通过 Markdown 以及 Liquid 转化成一个完整的静态网站，并且可以运行在 GitHub Page 上。
 
 [jekyll](https://jekyllrb.com/)
-
 [jekyll 中文](http://jekyllcn.com/)
 
 -   #### 快速开始
