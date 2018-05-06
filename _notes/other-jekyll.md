@@ -24,10 +24,11 @@ GitHub Page 中使用的 Markdown 解析器为 kramdown，兼容并且提供了�
 
 [kramdown](https://kramdown.gettalong.org/)
 
-```yaml
-# /_config.yml
-markdown: kramdown  # 指定 markdown 解释器
-```
+-   ```yaml
+    # /_config.yml
+    markdown: kramdown  # 指定 markdown 解释器
+    ```
+^
 
 ## Rouge
 

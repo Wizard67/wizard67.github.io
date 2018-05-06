@@ -36,54 +36,42 @@
 
 -   添加文件到暂存区
 -   ```bash
-    $ git add <file>
-    $ git add <dir>
-    $ git add .
+    $ git add <file> | <dir> | .
     ```
 -   如果需要在添加变化前进行确认，可使用 `-p` 参数
--   ```bash
-    $ git add -p
-    ```
 ^
 
 -   提交变动到仓库区
 -   ```bash
     # 提交暂存区文件到仓库区, 省略 <file> 则全部提交
     $ git commit <file> -m <message>
-    
-    # 覆盖上一次提交，如果代码无变化则改写上次的提交信息
-    $ git commit --amend -m <message>
     ```
+-   使用 `--amend` 参数覆盖上一次提交信息
 ^
 
--   撤销
+-   撤销操作
 -   ```bash
     # 恢复暂存区的文件到工作区
-    $ git checkout <file>
-    $ git checkout .
+    $ git checkout <file> | .
     
     # 撤销上次提交操作的文件到工作区
     $ git reset HEAD^
     ```
+-   [关于 `HEAD^` 与 `HEAD~` 的关系](http://www.cnblogs.com/chjbbs/p/6418339.html)
 ^
 
--   分支
+-   分支新建与删除
 -   ```bash
-    # 列出所有本地分支与远程分支
-    $ git branch -a
-    
-    # 新建分支并切换过去
-    $ git checkout -b <branch>
-
     # 删除指定分支
     $ git branch -d <branch>
 
     # 切换分支
+    # 使用 -b 参数表示新建分支，并切换
     $ git checkout <branch>
     ```
 ^
 
--   合并
+-   合并命令
 -   ```bash
     # 合并指定分支到当前分支
     $ git merge <branch>
@@ -112,8 +100,8 @@
 
     # 删除远程tag
     $ git push origin :refs/tags/<tag>
-
     ```
+-   push 命令不会主动推送 `tag`
 ^
 
 -   查看信息
@@ -201,9 +189,5 @@
 -   如果需要本地分支去覆盖远程分支，可使用 `--force/-f` 参数
 -   ```bash
     $ git push -f origin master
-    ```
--   `git push` 不会推送 `tag`，除非指名 `--tags` 选项
--   ```bash
-    $ git push origin --tags
     ```
 ^
