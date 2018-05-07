@@ -199,3 +199,9 @@ Gogs 是一款极易搭建的自助 Git 服务（可以在 Windows 环境中搭�
 
 [官网](https://gogs.io/)
 
+## Notes
+
+[git 合并两个不同的仓库报错 `refusing to merge unrelated histories`](https://blog.csdn.net/lindexi_gd/article/details/52554159)
+
+[Git 有什么奇技淫巧？](https://www.zhihu.com/question/27462267)
+
