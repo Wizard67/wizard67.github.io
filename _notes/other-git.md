@@ -194,6 +194,21 @@
     ```
 ^
 
+## .gitignore
+
+Git 会根据 .gitignore 内的规则来判断是否将文件添加到版本控制中
+
+[Git忽略规则.gitignore梳理](https://www.cnblogs.com/kevingrace/p/5690241.html)
+
+如果需要忽略已经被 track 的文件，需要清除本地缓存
+
+-   ```bash
+    $ git rm -r --cached .
+    $ git add .
+    $ git commit -m 'update .gitignore'
+    ```
+^
+
 ## Gogs
 
 Gogs 是一款极易搭建的自助 Git 服务（可以在 Windows 环境中搭建）
