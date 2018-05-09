@@ -11,14 +11,11 @@
 
 ## Tips
 
-vscode 中在 jsx 里使用 Emmet
+[vscode 中在 jsx 里使用 Emmet](https://github.com/Microsoft/vscode/issues/4962)
 
 -   ```json
-    "emmet.syntaxProfiles": {
-        "javascript": "jsx",
-        "xml": {
-            "attr_quotes": "single"
-        }
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
     }
     ```
 ^
