@@ -9,3 +9,16 @@
 
 ## Base
 
+## Tips
+
+vscode 中在 jsx 里使用 Emmet
+
+-   ```json
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx",
+        "xml": {
+            "attr_quotes": "single"
+        }
+    }
+    ```
+^
