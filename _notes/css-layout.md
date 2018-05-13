@@ -147,10 +147,12 @@
       text-align-last: justify;            /* ie9 */
       -moz-text-align-last: justify;       /* ff */
       -webkit-text-align-last: justify;    /* chrome 20+ */
-      font-size: 0;
     }
     /* hack webkit */
     @media screen and (-webkit-min-device-pixel-ratio:0) {
+      .container {
+        font-size: 0; 
+      }
       .container::after {
         content: "";
         display: inline-block;
@@ -163,6 +165,7 @@
     }
     ```
 -   [DEMO](https://codepen.io/wizard67/pen/YLVxXq)
+-   很不推荐，`text-align` 等相关属性会被继承下去。
 ^
 
 -   grid - [Grid Layout](https://drafts.csswg.org/css-grid-1/)
