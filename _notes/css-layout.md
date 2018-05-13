@@ -164,8 +164,8 @@
       font-size: 16px;       /* reset */
     }
     ```
--   [DEMO](https://codepen.io/wizard67/pen/YLVxXq)
 -   很不推荐，`text-align` 等相关属性会被继承下去。
+-   [DEMO](https://codepen.io/wizard67/pen/YLVxXq)
 ^
 
 -   grid - [Grid Layout](https://drafts.csswg.org/css-grid-1/)
