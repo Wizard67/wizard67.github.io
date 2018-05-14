@@ -9,6 +9,17 @@
 
 ## Base
 
+### usage
+
+-   ```bash
+    # use create-react-app
+    $ npm install -g create-react-app
+    $ create-react-app my-app
+    $ cd my-app
+    $ npm start
+    ```
+^
+
 ## Notes
 
 [为什么在 React 的 Render 中使用箭头函数和 bind 会造成问题](https://zhuanlan.zhihu.com/p/29266705)
