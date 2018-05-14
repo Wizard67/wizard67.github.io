@@ -9,6 +9,10 @@
 
 ## Base
 
+## Notes
+
+[为什么在 React 的 Render 中使用箭头函数和 bind 会造成问题](https://zhuanlan.zhihu.com/p/29266705)
+
 ## Tips
 
 [vscode 中在 jsx 里使用 Emmet](https://github.com/Microsoft/vscode/issues/4962)
