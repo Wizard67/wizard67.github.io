@@ -22,6 +22,8 @@
 
 ## Notes
 
+[谈一谈创建React Component的几种方式](https://segmentfault.com/a/1190000008402834)
+
 [为什么在 React 的 Render 中使用箭头函数和 bind 会造成问题](https://zhuanlan.zhihu.com/p/29266705)
 
 ## Tips
