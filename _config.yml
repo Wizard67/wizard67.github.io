@@ -28,7 +28,3 @@ collections:
     output: true
   notes:
     output: true
-
-# Site info
-
-pathSplite: "-" # a sign to split page url

@@ -24,7 +24,7 @@ format:
 
 {%- capture getColumns -%}
   {%- for page in site.documents -%}
-    {{ page.url | split: site.pathSplite | first | split: "/" | slice: 1 }},
+    {{ page.url | split: "/" | slice: 1 }},
   {%- endfor -%}
 {%- endcapture -%}
 
@@ -36,16 +36,15 @@ format:
   {%- for column in uniqColumns -%}
   {%- capture getCategory -%}
     {%- for page in site.documents -%}
-      {%- assign pageTag = page.url | split: site.pathSplite | first | split: "/" | slice: 1 -%}
+      {%- assign pageTag = page.url | url_decode | split: "/" | slice: 1 -%}
       {%- capture pageTagString -%}
         {{pageTag}}
       {%- endcapture -%}
       {%- if pageTagString == column -%}
-        {{ page.url | split: site.pathSplite | first | split: "/" | last }},
+        {{ page.url | url_decode | split: "]" | first | split: "[" | last }},
       {%- endif -%}
     {%- endfor -%}
   {%- endcapture -%}
-
   {%- assign uniqCategory = getCategory | split: "," | compact | uniq | sort -%}
   {
     "column": "{{column}}",
@@ -57,8 +56,8 @@ format:
 
         {%- capture getItems -%}
           {%- for page in site.documents -%}
-            {%- assign pageCategory = page.url | split: site.pathSplite | first | split: "/" | last -%}
-            {%- assign pageTag = page.url | split: site.pathSplite | first | split: "/" | slice: 1 -%}
+            {%- assign pageCategory = page.url | url_decode | split: "]" | first | split: "[" | last -%}
+            {%- assign pageTag = page.url | split: "]" | first | split: "/" | slice: 1 -%}
             {%- capture pageTagString -%}
 
         {{pageTag}}
@@ -67,7 +66,7 @@ format:
             {%- if pageTagString == column and pageCategory == category -%}
 
       {
-        "title": "{{page.path | split: site.pathSplite | last | split: "." | first }}",
+        "title": "{{page.path | split: "]" | last | split: "." | first }}",
         "date": "{{page.date}}",
         "url": "{{page.url}}"
       }@
