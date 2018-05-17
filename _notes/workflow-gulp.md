@@ -49,6 +49,15 @@
     ```
 ^
 
+-   gulp.dest
+-   写入数据到文件
+-   ```js
+    gulp.src('./src/*.pug')
+        .pipe(pug())
+        .pipe(gulp.dest('./dist'))
+    ```
+^
+
 ## BrowserSync
 
 浏览器同步测试工具
