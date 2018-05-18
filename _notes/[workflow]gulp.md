@@ -5,9 +5,10 @@
 
 > 基于文件流的构建系统
 
-[Gulp](https://gulpjs.com/)
-[Gulp 3.x 中文](https://www.gulpjs.com.cn/)
-[Gulp 4.0 api 中文](https://github.com/cssmagic/blog/issues/55)
+[gulp](https://gulpjs.com/)
+[gulp 3.x 中文](https://www.gulpjs.com.cn/)
+[gulp 4.0 api 中文](https://github.com/cssmagic/blog/issues/55)
+[gulp plugins](https://gulpjs.com/plugins/)
 
 ## Usage
 
@@ -87,4 +88,8 @@
 
 # Notes
 
-[Gulp 资料大全：入门、插件、脚手架、包清单](https://juejin.im/entry/570c599a2e958a005c4fd307)
+[gulp 资料大全：入门、插件、脚手架、包清单](https://juejin.im/entry/570c599a2e958a005c4fd307)
+
+[文件路径匹配模式globs](http://yangbo5207.github.io/gulp/2016/08/10/new.html)
+
+[gulp 有哪些功能是 webpack 不能替代的？](https://www.zhihu.com/question/45536395?sort=created)
