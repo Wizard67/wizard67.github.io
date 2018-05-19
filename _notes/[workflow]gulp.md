@@ -90,6 +90,12 @@
 
 [gulp 资料大全：入门、插件、脚手架、包清单](https://juejin.im/entry/570c599a2e958a005c4fd307)
 
-[文件路径匹配模式globs](http://yangbo5207.github.io/gulp/2016/08/10/new.html)
+[gulp 源码解析（一）—— Stream详解](http://www.cnblogs.com/vajoy/p/6349817.html)
+
+[gulp 源码解析（二）—— vinyl-fs](http://www.cnblogs.com/vajoy/p/6357476.html)
+
+[gulp源码解析（三）—— 任务管理](http://www.cnblogs.com/vajoy/p/6359950.html)
+
+[文件路径匹配模式 globs](http://yangbo5207.github.io/gulp/2016/08/10/new.html)
 
 [gulp 有哪些功能是 webpack 不能替代的？](https://www.zhihu.com/question/45536395?sort=created)
