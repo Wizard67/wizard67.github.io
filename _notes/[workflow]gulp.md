@@ -41,7 +41,7 @@
 -   需要重命名 gulpfile.js 为 gulpfile.babel.js
 ^
 
-## Base
+## Base(常用)
 
 -   gulp.src
 -   读取所有匹配到的文件
@@ -53,9 +53,46 @@
 -   gulp.dest
 -   写入数据到文件
 -   ```js
+    gulp.dest(globs[, options])
+
     gulp.src('./src/*.pug')
         .pipe(pug())
         .pipe(gulp.dest('./dist'))
+    ```
+^
+
+-   gulp.task
+-   定义一个 gulp 任务
+-   ```js
+    gulp.task([name,] fn)
+    ```
+-   如果省略 name 参数，则使用 fn 的 name 属性或者 displayName 属性(可标记不可使用的函数名字符)
+^
+
+-   gulp.parallel
+-   并行运行任务
+-   ```js
+    gulp.parallel(...tasks)
+
+    gulp.task('default', gulp.parallel('one', 'two', function(done) {
+        done()
+    }))
+    ```
+-   tasks 参数: Array, String or Function
+^
+
+-   gulp.series
+-   串行运行任务(类 gulp.parallel)
+-   ```js
+    gulp.series(...tasks)
+    ```
+^
+
+-   gulp.watch
+-   监控文件变化
+-   ```js
+    gulp.watch(globs[, opts], fn)
+        .on(event, fn)
     ```
 ^
 
@@ -99,3 +136,7 @@
 [文件路径匹配模式 globs](http://yangbo5207.github.io/gulp/2016/08/10/new.html)
 
 [gulp 有哪些功能是 webpack 不能替代的？](https://www.zhihu.com/question/45536395?sort=created)
+
+[设计 gulp & webpack 构建系统 一](https://www.jianshu.com/p/9724c47b406c)
+
+[设计 gulp & webpack 构建系统 二](https://www.jianshu.com/p/2cc6a22c9ecc)
