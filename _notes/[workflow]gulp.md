@@ -140,3 +140,8 @@
 [设计 gulp & webpack 构建系统 一](https://www.jianshu.com/p/9724c47b406c)
 
 [设计 gulp & webpack 构建系统 二](https://www.jianshu.com/p/2cc6a22c9ecc)
+
+---
+
+[gulp 中的增量编译](http://www.cnblogs.com/zichi/p/6265208.html)
+
