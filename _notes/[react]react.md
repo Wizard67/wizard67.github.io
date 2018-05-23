@@ -23,7 +23,7 @@
 ### syntax
 
 -   Fragments
--   ```JS
+-   ```jsx
     render() {
         return [
             "Some text.",
@@ -35,7 +35,7 @@
     }
     ```
 -   使用数组时，子元素需要用逗号隔离并且设置唯一 `key`；字符串必须在引号内
--   ```js
+-   ```jsx
     render() {
         const Fragment = React.Fragment;
         return (
@@ -48,7 +48,7 @@
     }
     ```
 -   `Fragment` 目前唯一接受 `key` 属性 
--   ```js
+-   ```jsx
     render() {
         return (
             <>
