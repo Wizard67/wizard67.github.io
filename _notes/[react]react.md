@@ -20,6 +20,51 @@
     ```
 ^
 
+### syntax
+
+-   Fragments
+-   ```jsx
+    render() {
+        return [
+            "Some text.",
+            <h2 key="heading-1">A heading</h2>,
+            "More text.",
+            <h2 key="heading-2">Another heading</h2>,
+            "Even more text."
+        ]
+    }
+    ```
+-   使用数组时，子元素需要用逗号隔离并且设置唯一 `key`；字符串必须在引号内
+-   ```jsx
+    render() {
+        const Fragment = React.Fragment;
+        return (
+            <Fragment>
+                <ChildA />
+                <ChildB />
+                <ChildC />
+            </Fragment>
+        )
+    }
+    ```
+-   `Fragment` 目前唯一接受 `key` 属性 
+-   ```jsx
+    render() {
+        return (
+            <>
+            Some text.
+            <h2>A heading</h2>
+            More text.
+            <h2>Another heading</h2>
+            Even more text.
+            </>
+        )
+    }
+    ```
+-   Create React App 暂时不支持部分 Fragments 语法（<></>）
+-   <></> 语法不接受属性
+
+
 ## Notes
 
 [谈一谈创建React Component的几种方式](https://segmentfault.com/a/1190000008402834)
