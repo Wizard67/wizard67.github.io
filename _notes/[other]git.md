@@ -209,6 +209,14 @@ Git 会根据 .gitignore 内的规则来判断是否将文件添加到版本控�
     ```
 ^
 
+## ERROR
+
+warning: LF will be replaced by CRLF
+
+```bash
+$ git config --global core.autocrlf false
+```
+
 ## Gogs
 
 Gogs 是一款极易搭建的自助 Git 服务（可以在 Windows 环境中搭建）

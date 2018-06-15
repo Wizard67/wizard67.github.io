@@ -94,6 +94,7 @@
     gulp.watch(globs[, opts], fn)
         .on(event, fn)
     ```
+-   gulp.watch 使用 [chokidar](https://github.com/paulmillr/chokidar) 库，关于 `rename` 事件的 [issues](https://github.com/paulmillr/chokidar/issues/303)
 ^
 
 ## BrowserSync
